@@ -1,0 +1,27 @@
+<div class="lightbox">
+    <img src="{{}}" alt="{{}}" class="lightbox__image" />
+    <div class="lightbox__content">
+        <h2 class="lightbox__name">{{}}</h2>
+        <ul class="info-list">
+            <li class="info-list__item">Vote/Votes {{}}/{{}}</li>
+            <li class="info-list__item">Popularity {{}}</li>
+            <li class="info-list__item">Original Title {{}}</li>
+            <li class="info-list__item">Genre {{}}</li>
+        </ul>
+        <h3>ABOUT</h3>
+
+        <p class="film__description">
+            {{description}}
+        </p>
+    </div>
+
+    <div class="lightbox__buttons">
+        <button class="lightbox__button button" data-id="{{id}}">
+            ADD TO WATCHED
+        </button>
+        
+        <button class="lightbox__button button" data-id="{{id}}">
+            ADD TO QUEUE
+        </button>
+    </div>
+</div>
