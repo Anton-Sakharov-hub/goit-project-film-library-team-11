@@ -1,0 +1,121 @@
+.header-general {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  background-image: url(../images/gradient.png), url(../images/bg-header-mob.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 48px 20px 0 20px;
+  min-width: 320px;
+  margin: 0px auto;
+  height: 230px;
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    background-image: url(../images/gradient.png), url(../images/bg-header-tab.png);
+    padding: 48px 76px 0 76px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    background-image: url(../images/gradient.png), url(../images/bg-header-dt.png);
+    padding: 48px 71px 0 71px;
+  }
+}
+
+.navigation {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 40px;
+  line-height: 1;
+}
+
+.btn {
+  display: inline;
+  padding: 0;
+}
+
+.btn-logo {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: #fff;
+}
+
+.logo-text {
+  // font-family: Roboto;
+  display: inline;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.7;
+
+  @media screen and (max-width: 767px) {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0 !important;
+    border: 0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden;
+  }
+}
+
+.btn-home {
+  position: relative;
+  background: transparent;
+  color: #fff;
+  border: none;
+  // font-family: Roboto;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.16;
+
+  &::after {
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    content: '';
+    width: 100%;
+    height: 3px;
+    background-color: #ff6b08;
+  }
+}
+
+.btn-myLibrary {
+  position: relative;
+  background: transparent;
+  margin-left: 40px;
+  color: #fff;
+  border: none;
+  // font-family: Roboto;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.form {
+  position: relative;
+  margin: 0px auto;
+}
+
+.form-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #fff;
+  width: 280px;
+  color: #fff;
+  @media screen and (min-width: 768px) {
+    width: 336px;
+  }
+}
+
+.btn-submit {
+  position: absolute;
+  left: 265px;
+  background: transparent;
+  border: none;
+  @media screen and (min-width: 768px) {
+    left: 320px;
+  }
+}
