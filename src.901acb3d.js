@@ -7,4 +7,4 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 },{"../js/refs.js":"VyiV"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/header.js");
 },{"./sass/main.scss":"clu1","./js/header.js":"cGsR"}]},{},["Focm"], null)
-//# sourceMappingURL=/goit-project-film-library-team-11/src.3ab073fa.js.map
+//# sourceMappingURL=/goit-project-film-library-team-11/src.901acb3d.js.map
