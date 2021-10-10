@@ -7,7 +7,7 @@
   flex-direction: column;
   justify-content: start;
   padding: 48px 20px 0 20px;
-  max-width: 320px;
+
   margin: 0px auto;
   min-height: 230px;
   background-size: cover;
@@ -27,6 +27,7 @@
 
 .header__bg-home {
   background-image: url(../images/gradient.png), url(../images/bg-header-mob.png);
+  // min-width: 320px;
 
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     background-image: url(../images/gradient.png), url(../images/bg-header-mob@2x.png);
