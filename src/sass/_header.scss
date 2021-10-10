@@ -1,13 +1,6 @@
-.visually-hidden {
-  position: absolute !important;
-  clip: rect(1px 1px 1px 1px);
-  clip: rect(1px, 1px, 1px, 1px);
-  padding: 0 !important;
-  border: 0 !important;
-  height: 1px !important;
-  width: 1px !important;
-  overflow: hidden;
-}
+// * {
+//   outline: 1px solid red;
+// }
 
 .header {
   display: flex;
@@ -16,7 +9,7 @@
   padding: 48px 20px 0 20px;
   max-width: 320px;
   margin: 0px auto;
-  height: 230px;
+  min-height: 230px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -83,27 +76,25 @@
 .navigation {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 40px;
+  align-items: center;
+  margin-bottom: 45px;
 }
 
 .btn {
   display: inline;
   background: transparent;
+  color: #fff;
   padding: 0;
   border: none;
 }
 
-.btn-logo {
-  color: #fff;
-}
-
 .logo-text {
-  // font-family: Roboto;
   display: none;
+  // font-family: Roboto;
   font-weight: 500;
   font-size: 30px;
-  line-height: 1.7;
+  line-height: 0.89;
+  color: #fff;
 
   @media screen and (min-width: 767px) {
     display: inline;
@@ -112,8 +103,6 @@
 
 .btn-home {
   position: relative;
-  color: #fff;
-
   // font-family: Roboto;
   font-weight: 500;
   font-size: 12px;
@@ -123,12 +112,10 @@
 .btn-myLibrary {
   position: relative;
   margin-left: 40px;
-  color: #fff;
-
   // font-family: Roboto;
   font-weight: 500;
   font-size: 12px;
-  line-height: 14px;
+  line-height: 1.16;
 }
 
 .current-page::after {
@@ -164,4 +151,12 @@
   @media screen and (min-width: 768px) {
     left: 320px;
   }
+}
+
+.nav-library {
+  margin: 0 auto;
+}
+
+.watched {
+  margin-right: 15px;
 }
