@@ -1,24 +1,47 @@
-.header-general {
+.header {
   display: flex;
   flex-direction: column;
   justify-content: start;
-  background-image: url(../images/gradient.png), url(../images/bg-header-mob.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
   padding: 48px 20px 0 20px;
-  min-width: 320px;
+  max-width: 320px;
   margin: 0px auto;
   height: 230px;
 
   @media screen and (min-width: 768px) and (max-width: 1023px) {
-    background-image: url(../images/gradient.png), url(../images/bg-header-tab.png);
     padding: 48px 76px 0 76px;
+    max-width: 768px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding: 48px 71px 0 71px;
+    max-width: 1024px;
+  }
+}
+
+.header__bg {
+  background-image: url(../images/gradient.png), url(../images/bg-header-mob.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    background-image: url(../images/gradient.png), url(../images/bg-header-mob@2x.png);
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    background-image: url(../images/gradient.png), url(../images/bg-header-tab.png);
+
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      background-image: url(../images/gradient.png), url(../images/bg-header-tab@2x.png);
+    }
   }
 
   @media screen and (min-width: 1024px) {
     background-image: url(../images/gradient.png), url(../images/bg-header-dt.png);
-    padding: 48px 71px 0 71px;
+
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      background-image: url(../images/gradient.png), url(../images/bg-header-dt@2x.png);
+    }
   }
 }
 
@@ -99,7 +122,7 @@
   margin: 0px auto;
 }
 
-.form-input {
+.form__input {
   background: transparent;
   border: none;
   border-bottom: 1px solid #fff;
