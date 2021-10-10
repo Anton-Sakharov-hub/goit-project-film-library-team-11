@@ -1,0 +1,33 @@
+/* Палитра цветов */
+/* цвет основного текста - #000000 */
+/* вторичный цвет текста - #FFFFFF */
+/* цвет текста модалка одного фильма - #8C8C8C; */
+/* цвет текста подвала - #545454 */
+/* цвет акцента - #FF6B01 */
+/* цвет сообщения - #FF001B */
+
+/* основной цвет фона - #ffffff*/
+/* цвет фона подвала - #F7F7F7 */
+
+$primeryTextColor: #000000;
+$secondaryTextColor: #ffffff;
+$modalText: #8c8c8c;
+$footerTextColor: #545454;
+$messageTextColor: #ff001b;
+$accentColor: #ff6b01;
+$primeryBgColor: #fff;
+$footerBgColor: #f7f7f7;
+$primeryFont: 'Roboto', sans-serif;
+
+$cubic: cubic-bezier(0.4, 0, 0.2, 1);
+
+// переменные для ширины контейнеров
+$mobileContainer: 320px;
+$tabletContainer: 768px;
+$desktopContainer: 1024px;
+
+// breakpoints
+$mobileBreakpoint: 767.9px;
+$tabletBreakpoint: 768px;
+$desktopBreakpoint: 1024px;
+// $preDesktop: 1024px;

@@ -1,0 +1,15 @@
+body {
+  font-family: $primeryFont;
+  color: $primeryTextColor;
+  background-color: $primeryBgColor;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  @extend %listReset;
+}
