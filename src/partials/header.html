@@ -1,28 +1,34 @@
-<header class="header header__bg ">
+<header class="header header__bg-home ">
 
   <nav class="navigation">
 
-    <button class="btn btn-logo" type="button">
+    <a href="./index.html">
       <svg width="24" height="24">
         <use href="./images/film.svg#film"></use>
       </svg>
-      <!-- <span class="logo-text">Filmoteca</span> -->
-    </button>
+      <span class="logo-text">Filmoteca</span>
+    </a>
+
 
     <div>
-      <button class=" btn btn-home" type="button">HOME</button>
-      <button class=" btn btn-myLibrary" type="button">MY LIBRARY</button>
+      <button class=" btn btn-home " type="button">HOME</button>
+      <button class=" btn btn-myLibrary current-page" type="button">MY LIBRARY</button>
     </div>
 
   </nav>
 
-  <form class="form">
-    <input class="form__input" type="text" placeholder="Поиск фильмов">
+  <form class="form .visually-hidden">
+    <input class="form__input" type="text" name="query" placeholder="Поиск фильмов">
     <button class=" btn btn-submit" type="submit">
       <svg width="12" height="12">
         <use href="./images/search.svg#search"></use>
       </svg>
     </button>
   </form>
+
+  <div class="visually-hidden">
+    <button class="" type="button">WATCHED</button>
+    <button class="" type="button">QUEUE</button>
+  </div>
 
 </header>
