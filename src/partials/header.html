@@ -1,4 +1,4 @@
-<header class="header header-js header__bg-home ">
+<header class="header header__bg-home header-js">
 
   <nav class="navigation">
 
@@ -10,15 +10,15 @@
     </a>
 
     <div>
-      <button class=" btn btn-home current-page btn-home-js" type="button">HOME</button>
-      <button class=" btn btn-myLibrary btn-myLibrary-js " type="button">MY LIBRARY</button>
+      <button class=" button button__home current-page btn-home-js" type="button">HOME</button>
+      <button class=" button button__myLibrary btn-myLibrary-js " type="button">MY LIBRARY</button>
     </div>
 
   </nav>
 
   <form class="form form-js">
-    <input class="form__input" type="text" name="query" placeholder="Поиск фильмов">
-    <button class=" btn btn-submit  btn-submit-js" type="submit">
+    <input class="form__input" type="text" name="query" placeholder="Поиск фильмов" autocomplete="off">
+    <button class=" button button__submit  btn-submit-js" type="submit">
       <svg width="12" height="12">
         <use href="./images/search.svg#search"></use>
       </svg>
@@ -26,8 +26,8 @@
   </form>
 
   <div class="nav-library nav-library-js visually-hidden">
-    <button class="watched" type="button">WATCHED</button>
-    <button class="" type="button">QUEUE</button>
+    <button class="button button__main button__watched .button__current btn-watched-js" type="button">WATCHED</button>
+    <button class="button button__main btn-queue-js" type="button">QUEUE</button>
   </div>
 
 </header>
