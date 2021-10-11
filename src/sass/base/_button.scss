@@ -20,7 +20,7 @@
     position: absolute;
     left: 265px;
 
-    @media screen and (min-width: 768px) {
+    @include for-tablet {
       left: 320px;
     }
   }
@@ -37,7 +37,7 @@
     border: 1px solid $secondaryTextColor;
     transition: background-color 250ms $cubic, color 250ms $cubic, box-shadow 250ms $cubic;
 
-    @media screen and (min-width: 768px) {
+    @include for-tablet {
       width: 136px;
     }
     &:hover,
@@ -67,10 +67,10 @@
       background-color: accentColor;
       box-shadow: $shadow;
     }
-    @media screen and (min-width: 768px) {
+    @include for-tablet {
       width: 125px;
     }
-    @media screen and (min-width: 1024px) {
+    @include for-desktop {
       width: 136px;
     }
   }

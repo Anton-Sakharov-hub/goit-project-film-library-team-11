@@ -3,18 +3,26 @@
 // }
 
 .header {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  padding: 48px 20px 0 20px;
-  margin: 0px auto;
-  min-height: 230px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 
-  @media screen and (min-width: 768px) {
-    padding: 48px 75px 0 75px;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    min-height: 230px;
+    max-width: $mobileContainer;
+    padding: 48px 20px 0 20px;
+    margin: 0px auto;
+
+    @include for-tablet {
+      max-width: $tabletContainer;
+      padding: 48px 75px 0 75px;
+    }
+    @include for-desktop {
+      max-width: $desktopContainer;
+    }
   }
 
   &__bg-home {
@@ -24,7 +32,7 @@
       background-image: url(../images/gradient.png), url(../images/bg-header-mob@2x.png);
     }
 
-    @media screen and (min-width: 768px) and (max-width: 1023px) {
+    @include for-tablet {
       background-image: url(../images/gradient.png), url(../images/bg-header-tab.png);
 
       @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -32,7 +40,7 @@
       }
     }
 
-    @media screen and (min-width: 1024px) {
+    @include for-desktop {
       background-image: url(../images/gradient.png), url(../images/bg-header-dt.png);
 
       @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -48,7 +56,7 @@
       background-image: url(../images/gradient.png), url(../images/bg-header-ml-mob@2x.png);
     }
 
-    @media screen and (min-width: 768px) and (max-width: 1023px) {
+    @include for-tablet {
       background-image: url(../images/gradient.png), url(../images/bg-header-ml-tab.png);
 
       @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -56,7 +64,7 @@
       }
     }
 
-    @media screen and (min-width: 1024px) {
+    @include for-desktop {
       background-image: url(../images/gradient.png), url(../images/bg-header-ml-dt.png);
 
       @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -80,7 +88,7 @@
   line-height: 0.89;
   color: #fff;
 
-  @media screen and (min-width: 767px) {
+  @include for-tablet {
     display: inline;
   }
 }
@@ -104,7 +112,7 @@
     border-bottom: 1px solid #fff;
     width: 280px;
     color: #fff;
-    @media screen and (min-width: 768px) {
+    @include for-tablet {
       width: 336px;
     }
   }
