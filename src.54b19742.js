@@ -4,7 +4,11 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var e={header:document.querySelector(".header-js"),btnHome:document.querySelector(".btn-home-js"),btnMyLibrary:document.querySelector(".btn-myLibrary-js"),btnSubmit:document.querySelector(".btn-submit-js"),formSearch:document.querySelector(".form-js"),navLibrary:document.querySelector(".nav-library-js"),teamModalBtn:document.querySelector(".js-teamModalBtn")};exports.default=e;
 },{}],"cGsR":[function(require,module,exports) {
 "use strict";var e=s(require("../js/refs.js"));function s(e){return e&&e.__esModule?e:{default:e}}const{header:a,btnHome:r,btnMyLibrary:t,btnSubmit:i,formSearch:d,navLibrary:n}=e.default;function c(){d.classList.add("visually-hidden"),t.classList.add("current-page"),a.classList.add("header__bg-ml"),r.classList.remove("current-page"),n.classList.remove("visually-hidden"),a.classList.remove("header__bg-home")}t.addEventListener("click",c);
-},{"../js/refs.js":"VyiV"}],"Focm":[function(require,module,exports) {
-"use strict";require("./sass/main.scss"),require("./js/header.js");
-},{"./sass/main.scss":"clu1","./js/header.js":"cGsR"}]},{},["Focm"], null)
-//# sourceMappingURL=/goit-project-film-library-team-11/src.b09a817f.js.map
+},{"../js/refs.js":"VyiV"}],"nQtz":[function(require,module,exports) {
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.API_KEY=void 0;const e="52d240069c1d754f89fa7da7b1692ef8";exports.API_KEY=e;
+},{}],"WJD8":[function(require,module,exports) {
+"use strict";var e=require("./api_key");async function o(){const o=await fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=${e.API_KEY}`);if(o.ok)return o.json();throw new Error("Error fetching data")}o().then(console.log).catch(e=>console.log(e));
+},{"./api_key":"nQtz"}],"Focm":[function(require,module,exports) {
+"use strict";require("./sass/main.scss"),require("./js/header.js"),require("./js/trending-fetch");
+},{"./sass/main.scss":"clu1","./js/header.js":"cGsR","./js/trending-fetch":"WJD8"}]},{},["Focm"], null)
+//# sourceMappingURL=/goit-project-film-library-team-11/src.54b19742.js.map
