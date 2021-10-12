@@ -11,4 +11,4 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 },{"./api_key":"nQtz"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/header.js"),require("./js/trending-fetch");
 },{"./sass/main.scss":"clu1","./js/header.js":"cGsR","./js/trending-fetch":"WJD8"}]},{},["Focm"], null)
-//# sourceMappingURL=/goit-project-film-library-team-11/src.55a0924c.js.map
+//# sourceMappingURL=/goit-project-film-library-team-11/src.58e4179a.js.map
