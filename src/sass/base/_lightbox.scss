@@ -32,6 +32,7 @@
   overflow-y: scroll;
   max-height: 100vh;
   padding: 40px 20px;
+  padding-top: 48px;
   background-color: #fff;
   transform: scale(0.95);
 
@@ -39,11 +40,13 @@
     display: flex;
     width: 618px;
     max-height: 100vh;
+    padding-top: 42px;
   }
 
   @media screen and (min-width: 1024px) {
     width: 882px;
     height: 618px;
+    padding-top: 50px;
   }
 }
 
@@ -138,38 +141,35 @@
   }
 }
 
-// // .lightbox__button {
-// //   position: absolute;
-// //   top: 8px;
-// //   right: 8px;
-// //   display: flex;
-// //   align-items: center;
-// //   justify-content: center;
-// //   width: 48px;
-// //   height: 48px;
-// //   padding: 0;
-// //   margin: 0;
-// //   border: none;
-// //   border-radius: 50%;
-// //   background-color: transparent;
-// //   color: #fff;
-// //   cursor: pointer;
-// //   transition: background-color var(--animation-duration) var(--timing-function);
-// //   outline: none;
-// //   background-image: url("../images/icon-close.svg");
-// //   background-position: center;
-// //   background-size: 60%;
-// //   background-repeat: no-repeat;
-// // }
-
-// .lightbox__button:hover,
-// .lightbox__button:focus {
-//   background-color: rgba(0, 0, 0, 0.5);
-// }
-
 .lightbox__buttons {
   display: flex;
-  &:not(:last-child) {
-    margin-right: 14px;
+}
+
+.close {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: transparent;
+  top: 2px;
+  right: 2px;
+  width: 48px;
+  height: 48px;
+  color: black;
+  background-color: var(--primary-background-color);
+
+  &:hover,
+  &:focus {
+    // color: var(--accent-color);
+    cursor: pointer;
+  }
+
+  &__cross {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    fill: currentColor;
+    // fill: black;
+    color: black;
   }
 }
