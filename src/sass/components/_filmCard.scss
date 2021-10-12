@@ -1,0 +1,48 @@
+// .container__card-position {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+// .card__list-item {
+/* position: relative; */
+// }
+
+.card__poster {
+  width: 100%;
+  height: 398px;
+
+  outline: 1px solid black;
+  border-radius: 5px;
+}
+
+.card__name {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+.card__text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  color: #ff6b08;
+}
+
+.card__vote_average {
+  width: 100%;
+  width: 36px;
+  height: 16px;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.17;
+  color: #ffffff;
+  background-color: #ff6b01;
+  border-radius: 5px;
+  padding: 0 10px;
+}

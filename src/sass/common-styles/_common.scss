@@ -28,3 +28,19 @@ a {
   width: 1px !important;
   overflow: hidden;
 }
+
+.container {
+  // $mobileContainer: 320px;
+  // $tabletContainer: 768px;
+  // $desktopContainer: 1024px;
+
+  @extend %marginCenters;
+
+  @include for-tablet {
+    width: $tabletContainer;
+  }
+
+  @include for-desktop {
+    width: $desktopContainer;
+  }
+}
