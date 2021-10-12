@@ -1,6 +1,5 @@
 import './sass/main.scss';
-import movieFetch from './js/movieFetch';
+import './js/header.js';
+import './js/trending-fetch';
 
-const refs = {
-  searchQuery: document.querySelector('.container'),
-};
+
