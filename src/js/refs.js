@@ -7,5 +7,8 @@ export default {
   formSearch: document.querySelector('.form-js'),
   navLibrary: document.querySelector('.nav-library-js'),
   // -------- footer --------------
-  teamModalBtn: document.querySelector('.js-teamModalBtn')
+  teamModalBtn: document.querySelector('.js-teamModalBtn'),
+
+  // --------- cardContainer -------------
+  cardContainer: document.querySelector('.card__list')
 };
