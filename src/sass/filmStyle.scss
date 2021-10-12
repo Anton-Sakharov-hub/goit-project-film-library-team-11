@@ -4,18 +4,19 @@
   justify-content: center;
 }
 
-.card__list-item {
-  /* position: relative; */
-}
+// .card__list-item {
+/* position: relative; */
+// }
 
 .card__poster {
   width: 274px;
   height: 398px;
+
+  outline: 1px solid black;
+  border-radius: 5px;
 }
 
 .card__name {
-  font-family: Roboto;
-  font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
@@ -43,4 +44,5 @@
   color: #ffffff;
   background-color: #ff6b01;
   border-radius: 5px;
+  padding: 0 10px;
 }
