@@ -4,11 +4,13 @@
  */
 
 // Стили для файла с примером HTML-фрагмента
+
 @import './utils/mixins';
 @import './utils/plasholders';
 @import './utils/veriables';
 @import './common-styles/common';
 @import './base/button';
 @import './components/header';
+@import './filmStyle.scss';
 @import './components/main-scn';
 @import './components/footer';

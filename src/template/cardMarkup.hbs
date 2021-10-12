@@ -1,0 +1,12 @@
+{{#each this}}
+<div class="container container__card-position">
+<li class="card__list-item">
+    <img class="card__poster" src="{{poster_path}}" alt="{{title}} {{name}} poster" id="{{id}}" loading="lazy">
+    <p class="card__name">{{title}} {{name}}</p>
+        <p class="card__text">
+        <span>{{#each genres}} {{name}} {{/each}}</span> | <span>{{first_air_date}} {{release_date}}</span>
+        <span class="card__vote_average">{{vote_average}}</span>
+    </p>
+</li>
+</div>
+{{/each}}
