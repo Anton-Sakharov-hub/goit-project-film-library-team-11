@@ -58,8 +58,13 @@
 
   &__modal {
     width: 112px;
-    color: primeryTextColor;
-    border: 1px solid primeryTextColor;
+    color: $primeryTextColor;
+
+    height: 44px;
+    @include font-styles();
+    border-radius: 5px;
+
+    border: 1px solid $primeryTextColor;
     transition: background-color 250ms $cubic, color 250ms $cubic, box-shadow 250ms $cubic;
 
     &:not(:last-child) {
@@ -68,9 +73,10 @@
 
     &:hover,
     &:focus {
-      color: secondaryTextColor;
-      background-color: accentColor;
+      color: $secondaryTextColor;
+      background-color: $accentColor;
       box-shadow: $shadow;
+      border: transparent;
     }
     @include for-tablet {
       width: 125px;
