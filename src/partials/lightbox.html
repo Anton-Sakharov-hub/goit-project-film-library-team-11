@@ -1,11 +1,16 @@
-<div class="lightbox is-open lightbox__overlay">
+<div class="lightbox js-lightbox lightbox__overlay">
   <!-- <div class="lightbox__overlay"></div> -->
   <div class="lightbox__container">
     <button class="close" data-modal-close>
       <!-- <svg class="close__cross" width="30" height="30">
         <use href="./images/close.svg#close"></use>
       </svg> -->
-      <img src="./images/close.svg" alt="{{alt}}" class="close__cross" />
+      <img
+        src="./images/close.svg"
+        alt="{{alt}}"
+        class="close__cross"
+        data-action="close-lightbox"
+      />
     </button>
     <div class="poster">
       <img src="./images/poster.jpg" alt="{{alt}}" class="lightbox__image" />
