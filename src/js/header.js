@@ -1,9 +1,17 @@
 import refs from '../js/refs.js';
+import homeRendering from './homeRendering.js';
 
-const { header, btnHome, btnMyLibrary, formSearch, navLibrary } = refs;
+const { header, logo, btnHome, btnMyLibrary, formSearch, navLibrary } = refs;
 
+logo.addEventListener('click', onLogoClick);
 btnHome.addEventListener('click', onBtnHomeClick);
 btnMyLibrary.addEventListener('click', onBtnMyLibraryClick);
+
+function onLogoClick() {
+  homeRendering();
+  const input = formSearch.elements.query;
+  input.value = '';
+}
 
 function onBtnMyLibraryClick() {
   formSearch.classList.add('visually-hidden');
@@ -21,4 +29,8 @@ function onBtnHomeClick() {
   btnHome.classList.add('current-page');
   navLibrary.classList.add('visually-hidden');
   header.classList.add('header__bg-home');
+  homeRendering();
+
+  const input = formSearch.elements.query;
+  input.value = '';
 }
