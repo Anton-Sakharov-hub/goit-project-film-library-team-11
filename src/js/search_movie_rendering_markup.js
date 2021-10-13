@@ -1,7 +1,7 @@
 import searchMovie from './search_movie_fech.js';
 import refs from '../js/refs.js';
 import cardMarkup from '../template/cardMarkup.hbs';
-const { formSearch, mainScn } = refs;
+const { formSearch, cardContainer } = refs;
 
 formSearch.addEventListener('submit', onFormSearchsubmit);
 
@@ -14,13 +14,13 @@ function onFormSearchsubmit(e) {
   searchMovie
     .fetchMovie()
     .then(({ results }) => {
-      mainScn.insertAdjacentHTML('beforeend', cardMarkup(results));
+      cardContainer.insertAdjacentHTML('beforeend', cardMarkup(results));
     })
     .catch(err => console.log(err));
 }
 
 const clearMainScn = () => {
-  mainScn.innerHTML = '';
+  cardContainer.innerHTML = '';
 };
 
 const updateQuery = newQuery => {
