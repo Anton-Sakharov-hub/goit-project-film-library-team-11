@@ -31,7 +31,9 @@ function onCloseLightbox(e) {
 
 
 function onBackdropClick(e) {
-   onCloseLightbox(e)
+  if (e.target === e.currentTarget) {
+    onCloseLightbox(e);
+  }
 }
 
 function onEscKeyPress(e) {
