@@ -1,6 +1,6 @@
 import refs from '../js/refs.js';
 
-const { header, btnHome, btnMyLibrary, btnSubmit, formSearch, navLibrary } = refs;
+const { header, btnHome, btnMyLibrary, formSearch, navLibrary } = refs;
 
 btnHome.addEventListener('click', onBtnHomeClick);
 btnMyLibrary.addEventListener('click', onBtnMyLibraryClick);
