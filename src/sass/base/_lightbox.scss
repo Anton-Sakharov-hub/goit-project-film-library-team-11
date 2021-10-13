@@ -25,16 +25,15 @@
 
 .lightbox__container {
   width: 280px;
-  position: relative;
   position: absolute;
-  top: 0;
-  left: 15%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   overflow-y: scroll;
   max-height: 100vh;
   padding: 40px 20px;
   padding-top: 48px;
   background-color: #fff;
-  transform: scale(0.95);
 
   @media screen and (min-width: 768px) {
     display: flex;
