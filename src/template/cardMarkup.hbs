@@ -1,12 +1,10 @@
-{{#each results}}
-{{!-- <div class="container container__card-position"> --}}
-<li class="card__list-item">
-    <img class="card__poster" src="https://image.tmdb.org/t/p/original{{poster_path}}" alt="{{title}} poster" id="{{id}}" loading="lazy">
-    <p class="card__name">{{title}}</p>
-        <p class="card__text">
-        <span></span> | <span>{{release_date}}</span>
-        <span class="card__vote_average">{{vote_average}}</span>
-    </p>
-</li>
-{{!-- </div> --}}
+{{#each this}}
+    <li class="card__list-item">
+        <img class="card__poster" src="https://image.tmdb.org/t/p/original{{poster_path}}" alt="{{title}} poster" id="{{id}}" loading="lazy">
+        <p class="card__name">{{title}}</p>
+            <p class="card__text">
+            <span></span> | <span>{{release_date}}</span>
+            <span class="card__vote_average">{{vote_average}}</span>
+        </p>
+    </li>
 {{/each}}

@@ -13,7 +13,7 @@ function createMarkup (films) {
     refs.cardContainer.innerHTML = cardsTemplate(films);
 };
 
-trendingFetch().then(films => {
-    console.log(films);
-    createMarkup(films);
+trendingFetch().then(({ results }) => {
+    console.log(results);
+    createMarkup(results);
 }).catch(err => console.log(err));

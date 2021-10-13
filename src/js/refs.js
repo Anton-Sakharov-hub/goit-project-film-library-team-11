@@ -6,9 +6,11 @@ export default {
   btnSubmit: document.querySelector('.btn-submit-js'),
   formSearch: document.querySelector('.form-js'),
   navLibrary: document.querySelector('.nav-library-js'),
+  // ----------mainScn-------------
+  // mainScn: document.querySelector('.main-scn'),
   // -------- footer --------------
-  teamModalBtn: document.querySelector('.js-teamModalBtn'),
-
+  teamModalBtn: document.querySelector('[data-teamModalBtn]'),
   // --------- cardContainer -------------
-  cardContainer: document.querySelector('.card__list')
+  cardContainer: document.querySelector('[data-cardContainer]'),
 };
+
