@@ -13,4 +13,10 @@ export default {
   teamModalBtn: document.querySelector('[data-teamModalBtn]'),
   // --------- cardContainer -------------
   cardContainer: document.querySelector('[data-cardContainer]'),
+    // --------- lightbox ------------
+  cardsContainer: document.querySelector('.card__list'),
+  lightboxContainer: document.querySelector('.js-lightbox'),
+  backdrop: document.querySelector('.lightbox__overlay'),
+  closeBtn: document.querySelector('[data-action="close-lightbox"]'),
 };
+
