@@ -1,6 +1,7 @@
 export default {
   // --------- header --------
   header: document.querySelector('.header-js'),
+  logo: document.querySelector('.logo-js'),
   btnHome: document.querySelector('.btn-home-js'),
   btnMyLibrary: document.querySelector('.btn-myLibrary-js'),
   btnSubmit: document.querySelector('.btn-submit-js'),
@@ -13,4 +14,3 @@ export default {
   // --------- cardContainer -------------
   cardContainer: document.querySelector('[data-cardContainer]'),
 };
-
