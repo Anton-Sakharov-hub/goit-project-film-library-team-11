@@ -7,7 +7,10 @@ export default {
   formSearch: document.querySelector('.form-js'),
   navLibrary: document.querySelector('.nav-library-js'),
   // ----------mainScn-------------
-  mainScn: document.querySelector('.main-scn'),
+  // mainScn: document.querySelector('.main-scn'),
   // -------- footer --------------
-  teamModalBtn: document.querySelector('.js-teamModalBtn'),
+  teamModalBtn: document.querySelector('[data-teamModalBtn]'),
+  // --------- cardContainer -------------
+  cardContainer: document.querySelector('[data-cardContainer]'),
 };
+

@@ -1,3 +1,47 @@
 .main-scn {
-    min-height: 100vh;
+  min-height: 100vh;
+
+  @include for-phone {
+    width: 320px;
+  }
+}
+
+.card__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+
+  @extend %marginCenters;
+  padding: 10px 0 30px;
+
+  @include for-tablet {
+    width: 648px;
+    padding: 45px 0;
+  }
+
+  @include for-desktop {
+    width: 912px;
+  }
+}
+
+.card__list-item {
+  width: 280px;
+  margin: 10px 15px;
+
+  @include for-phone {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @include for-tablet {
+    width: 294px;
+  }
+
+  @include for-desktop {
+    width: 274px;
+  }
 }

@@ -1,5 +1,6 @@
 .button {
   padding: 0;
+
   cursor: pointer;
   color: $secondaryTextColor;
   background-color: transparent;
@@ -60,6 +61,10 @@
     color: primeryTextColor;
     border: 1px solid primeryTextColor;
     transition: background-color 250ms $cubic, color 250ms $cubic, box-shadow 250ms $cubic;
+
+    &:not(:last-child) {
+      margin-right: 14px;
+    }
 
     &:hover,
     &:focus {
