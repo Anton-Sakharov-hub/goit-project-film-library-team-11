@@ -2,12 +2,15 @@
 <div class="lightbox__container ">
 
 <button class="close" data-modal-close>
-      <img
+      {{!-- <img
         src="./images/close.svg"
         alt="{{alt}}"
         class="close__cross"
         data-action="close-lightbox"
-      />
+      /> --}}
+        <svg class="close__cross">
+            <use href="./images/sprite.svg#icon-close-modal"></use>
+        </svg>
     </button>
 
 <div class="poster"><img src="https://image.tmdb.org/t/p/original{{poster_path}}" alt="{{original_title}} poster"
