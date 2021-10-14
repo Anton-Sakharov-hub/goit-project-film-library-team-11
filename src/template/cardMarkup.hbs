@@ -2,7 +2,7 @@
 {{!-- <div class="container container__card-position"> --}}
     <li class="card__list-item">
         <img class="card__poster" src="https://image.tmdb.org/t/p/original{{poster_path}}" alt="{{title}} poster"
-            id="{{id}}" loading="lazy">
+            data-filmId={{id}} loading="lazy">
         {{#if title}}
         <p class="card__name">{{title}}</p>
         {{else}}
