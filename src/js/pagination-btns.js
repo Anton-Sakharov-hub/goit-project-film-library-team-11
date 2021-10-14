@@ -2,11 +2,11 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 
 const options = {
-  totalItems: 100,
-  itemsPerPage: 1,
-  visiblePages: 10,
+  totalItems: 1000,
+  itemsPerPage: 20,
+  visiblePages: 5,
   page: 1,
-  centerAlign: false,
+//   centerAlign: false,
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
   template: {
@@ -32,15 +32,16 @@ const pagination = new Pagination(container, options);
 
 // const pagination = new Pagination('pagination', options);
 
-// pagination.on('beforeMove', evt => {
-//   const { page } = evt;
-//   const result = ajax.call({page});
+pagination.on('beforeMove', async evt => {
+    const { page } = evt;
+    console.log(evt);
+    // const result = await requestAnimationFrame();
 
 //   if(result) {
 //     pagination.movePageTo(page);
 //   } else {
-//     return false;
+    return false;
 //   }
-// });
+});
 
 // pagination.on('afterMove', ({ page }) => console.log(page));
