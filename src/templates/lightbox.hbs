@@ -1,27 +1,43 @@
-<div class="lightbox">
-    <img src="{{}}" alt="{{}}" class="lightbox__image" />
-    <div class="lightbox__content">
-        <h2 class="lightbox__name">{{}}</h2>
-        <ul class="info-list">
-            <li class="info-list__item">Vote/Votes {{}}/{{}}</li>
-            <li class="info-list__item">Popularity {{}}</li>
-            <li class="info-list__item">Original Title {{}}</li>
-            <li class="info-list__item">Genre {{}}</li>
-        </ul>
-        <h3>ABOUT</h3>
-
-        <p class="film__description">
-            {{description}}
-        </p>
-    </div>
-
-    <div class="lightbox__buttons">
-        <button class="lightbox__button button" data-id="{{id}}">
-            ADD TO WATCHED
+<div class="lightbox js-lightbox lightbox__overlay">
+    <div class="lightbox__container">
+        <button class="close" data-modal-close>
+            <img src="./images/close.svg" alt="{{alt}}" class="close__cross" data-action="close-lightbox" />
         </button>
-        
-        <button class="lightbox__button button" data-id="{{id}}">
-            ADD TO QUEUE
-        </button>
+        <div class="poster">
+            <img src="https://image.tmdb.org/t/p/original{{poster_path}}" alt="{{original_title}} poster" data-id={{id}} class="lightbox__image" />
+        <div class="lightbox__content">
+            <h2 class="lightbox__name">{{title}}</h2>
+            <div class="info">
+                <ul class="info-list">
+                    <li class="info-list__item">Vote/Votes</li>
+                    <li class="info-list__item">Popularity</li>
+                    <li class="info-list__item">Original Title</li>
+                    <li class="info-list__item">Genre</li>
+                </ul>
+                <ul class="info-data">
+                    <li class="info-list__item">
+                        <span class="rating-mark">{{vote_average}}</span>
+                        <span class="info-list">/</span>
+                        <span class="rating-mark rating-mark__votes">{{vote_count}}</span>
+                    </li>
+                    <li class="info-list__item">{{popularity}}</li>
+                    <li class="info-list__item">{{original_title}}</li>
+                    <li class="info-list__item">{{genre_ids}}</li>
+                </ul>
+            </div>
+            <div class="about">
+                <h3>ABOUT</h3>
+
+                <p class="film__description">
+                    {{overview}}
+                </p>
+            </div>
+
+            <div class="lightbox__buttons">
+                <button class="button__modal button" data-id="{{id}}">ADD TO WATCHED</button>
+
+                <button class="button__modal button" data-id="{{id}}">ADD TO QUEUE</button>
+            </div>
+        </div>
     </div>
 </div>
