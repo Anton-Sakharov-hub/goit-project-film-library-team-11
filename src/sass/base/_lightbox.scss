@@ -125,10 +125,11 @@
 }
 
 .lightbox__image {
-  width: auto;
-  height: auto;
+  // width: auto;
+  // height: auto;
   // max-height: 240px;
   // max-width: inherit;
+  object-fit: contain;
 
   @media screen and (min-width: 1024px) {
     height: 100%;
