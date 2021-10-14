@@ -9,7 +9,7 @@
         <p class="card__name">{{name}}</p>
         {{/if}}
         <p class="card__text">
-            <span>{{genre_ids}}</span> |
+            <span class="genresSpan" data-genres='{{genre_ids}}'>{{genre_ids}}</span> |
             {{#if release_date}}
             <span>{{release_date}}</span>
             {{else}}

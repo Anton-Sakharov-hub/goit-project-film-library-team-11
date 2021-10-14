@@ -1,4 +1,4 @@
-export const genres = [
+export const genresArr = [
   { id: 28, name: 'Action' },
   { id: 12, name: 'Adventure' },
   { id: 16, name: 'Animation' },
@@ -19,3 +19,14 @@ export const genres = [
   { id: 10752, name: 'War' },
   { id: 37, name: 'Western' },
 ];
+
+export function renderGenres() {
+  let genresEl = document.querySelectorAll('.genresSpan');
+  genresEl = [...genresEl]
+  console.log(genresEl);
+  // let idData = (genresEl.dataset.genres).split(',');
+//   idData = idData.map(el => Number(el));
+  
+//   const filtredId = genresArr.filter(genre => { })
+}
+
