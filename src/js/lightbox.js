@@ -21,7 +21,7 @@ function onCardsContainerClick(e) {
     console.log(e.target.nodeName);
     lightboxContainer.classList.add('is-open');
 
-      const filmId =  Number(e.target.dataset.filmid)
+      const filmId = Number(e.target.dataset.filmid)
         // renderModalCard(data);
   // console.log(e.target.dataset.filmid);
 
@@ -29,14 +29,15 @@ function onCardsContainerClick(e) {
 
 // id = 550988;
   const dataFilm = findFilm(filmId, filmsArray);
-  const markup = renderModalCard(dataFilm);
+  
+  const markup = lightboxTpl(dataFilm);
 
 
-  lightboxContainer.insertAdjacentHTML = markup;
+  lightboxContainer.innerHTML = markup;
 
   
     window.addEventListener('keydown', onEscKeyPress, { once: true })
-  closeBtn.addEventListener('click', onCloseLightbox, { once: true });
+  // closeBtn.addEventListener('click', onCloseLightbox, { once: true });
 
       console.log(filmsArray);
     
@@ -53,18 +54,20 @@ function onCloseLightbox(e) {
 function onBackdropClick(e) {
   if (e.target === e.currentTarget) {
     onCloseLightbox(e);
+    // lightboxContainer.insertAdjacentHTML = '';
   }
 }
 
 function onEscKeyPress(e) {
   if (e.code === 'Escape') {
     onCloseLightbox(e)
+    // lightboxContainer.insertAdjacentHTML = '';
   }
 }
 
-function renderModalCard(data) {
-  lightboxContainer.insertAdjacentHTML('beforeend', lightboxTpl(data));
-}
+// function renderModalCard(data) {
+//   lightboxContainer.insertAdjacentHTML('beforeend', lightboxTpl(data));
+// }
 
 
 function findFilm (filmId, filmsArray) {
