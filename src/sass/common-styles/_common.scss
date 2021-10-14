@@ -1,7 +1,14 @@
 body {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 108px;
   font-family: $primeryFont;
   color: $primeryTextColor;
   background-color: $primeryBgColor;
+
+  @include for-tablet {
+    padding-bottom: 79px;
+  }
 }
 
 img {

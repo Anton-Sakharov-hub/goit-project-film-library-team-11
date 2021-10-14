@@ -1,18 +1,13 @@
 .footer {
   display: flex;
   justify-content: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 
   @extend %marginCenters;
 
   background-color: $footerBgColor;
-
-  @include for-tablet {
-    width: $tabletContainer;
-  }
-
-  @include for-desktop {
-    width: $desktopContainer;
-  }
 }
 
 .copyrightsCntr {
