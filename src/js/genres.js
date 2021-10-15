@@ -62,6 +62,17 @@ export default class GenresDataWork {
       index += 1;
     });
   };
+
+  changeDate(filmData) {
+    filmData.forEach(el => {
+      if (el.release_date || null) {
+        el.release_date = el.release_date.slice(0, 4);
+      } else if (el.first_air_date || null) {
+        el.first_air_date = el.first_air_date.slice(0, 4);
+      }
+      return;
+    });
+  }
 };
 
 

@@ -17,8 +17,6 @@ function onFormSearchsubmit(e) {
   requests
     .movieFetch()
     .then(({ results, total_results }) => {
-      genresDataWork.addGenres(results);
-
       requests.createMarkup(results);
 
       paginationSearch.classList.remove('visually-hidden');
@@ -40,6 +38,8 @@ searchMoviePagination.on('afterMove', event => {
   requests
     .movieFetch()
     .then(({ results }) => {
+      genresDataWork.addGenres(results);
+      genresDataWork.changeDate(results);
       requests.createMarkup(results);
       LS.setLocalStorage('Query', results);
     })
