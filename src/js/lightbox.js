@@ -19,8 +19,9 @@ function onCardsContainerClick(e) {
 
   console.log(e.target.nodeName);
   lightboxContainer.classList.add('is-open');
-
-  const filmId = Number(e.target.dataset.filmid);
+  console.log((e.target.dataset.id));
+  const filmId = Number(e.target.dataset.id);
+  console.log(filmId);
   // renderModalCard(data);
   // console.log(e.target.dataset.filmid);
 
