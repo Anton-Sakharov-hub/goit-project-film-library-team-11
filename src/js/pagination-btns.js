@@ -1,11 +1,13 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
-import refs from '../js/refs.js';
+import refs from './refs.js';
+
 const { paginationHome, paginationSearch } = refs;
+
 const options1 = {
   totalItems: 1000,
   itemsPerPage: 20,
-  visiblePages: 8,
+  visiblePages: 5,
   page: 1,
   centerAlign: true,
   usageStatistics: false,
@@ -14,7 +16,7 @@ const options1 = {
 const options2 = {
   totalItems: 1000,
   itemsPerPage: 20,
-  visiblePages: 8,
+  visiblePages: 5,
   page: 1,
   centerAlign: true,
   usageStatistics: false,

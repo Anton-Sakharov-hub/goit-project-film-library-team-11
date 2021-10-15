@@ -1,7 +1,8 @@
 import requests from './requests.js';
-import refs from '../js/refs.js';
+import refs from './refs.js';
 import LS from './local_storage.js';
-import { searchMoviePagination } from './pagination-btns';
+import { searchMoviePagination } from './pagination-btns.js';
+import { togleClass, createMarkup } from './commonFunction.js';
 const { formSearch, paginationHome, paginationSearch } = refs;
 
 formSearch.addEventListener('submit', onFormSearchsubmit);
@@ -14,11 +15,8 @@ function onFormSearchsubmit(e) {
   requests
     .movieFetch()
     .then(({ results, total_results }) => {
-      requests.createMarkup(results);
-
-      paginationSearch.classList.remove('visually-hidden');
-      paginationHome.classList.add('visually-hidden');
-
+      createMarkup(results);
+      togleClass(paginationSearch, paginationHome, 'visually-hidden');
       searchMoviePagination.setTotalItems(total_results);
       searchMoviePagination.movePageTo(1);
       LS.setLocalStorage('Query', results);
@@ -35,7 +33,7 @@ searchMoviePagination.on('afterMove', event => {
   requests
     .movieFetch()
     .then(({ results }) => {
-      requests.createMarkup(results);
+      createMarkup(results);
       LS.setLocalStorage('Query', results);
     })
     .catch(err => console.log(err));
