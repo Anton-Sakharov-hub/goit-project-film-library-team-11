@@ -1,6 +1,7 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
-
+import refs from '../js/refs.js';
+const { paginationHome, paginationSearch } = refs;
 const options1 = {
   totalItems: 1000,
   itemsPerPage: 20,
@@ -19,9 +20,7 @@ const options2 = {
   usageStatistics: false,
 };
 
-const container1 = document.getElementById('pagination1');
-const container2 = document.getElementById('pagination2');
-const homePagePagination = new Pagination(container1, options1);
-const searchMoviePagination = new Pagination(container2, options2);
+const homePagePagination = new Pagination(paginationHome, options1);
+const searchMoviePagination = new Pagination(paginationSearch, options2);
 
 export { searchMoviePagination, homePagePagination };
