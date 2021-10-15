@@ -48,22 +48,26 @@ function onCardsContainerClick(e) {
 }
 
 function onCloseLightbox(e) {
+  const btnsRefs = addModalBtnsRefs();
+
   lightboxContainer.classList.remove('is-open');
+  btnsRefs.watchedBtn.removeEventListener('click', addToWatchedHandler);
+  btnsRefs.queueBtn.removeEventListener('click', addToQueueHandler);
 
   // window.removeEventListener('keyup', onEscKeyPress);
-}
+};
 
 function onBackdropClick(e) {
   if (e.target === e.currentTarget) {
     onCloseLightbox(e);
-  }
-}
+  };
+};
 
 function onEscKeyPress(e) {
   if (e.code === 'Escape') {
     onCloseLightbox(e);
-  }
-}
+  };
+};
 
 // function renderModalCard(data) {
 //   lightboxContainer.insertAdjacentHTML('beforeend', lightboxTpl(data));
