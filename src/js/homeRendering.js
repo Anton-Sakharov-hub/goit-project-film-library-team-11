@@ -11,7 +11,6 @@ export default function homeRendering() {
   requests
     .trendingFetch()
     .then(({ results, total_results }) => {
-      genresDataWork.addGenres(results);
       requests.createMarkup(results);
 
       paginationSearch.classList.add('visually-hidden');
@@ -29,6 +28,8 @@ homePagePagination.on('afterMove', event => {
   requests
     .trendingFetch()
     .then(({ results }) => {
+      genresDataWork.addGenres(results);
+      genresDataWork.changeDate(results);
       requests.createMarkup(results);
       LS.setLocalStorage('Query', results);
     })
@@ -36,3 +37,10 @@ homePagePagination.on('afterMove', event => {
 });
 
 homeRendering();
+// let string = 'Bahamas';
+
+// // console.log(string.slice(0, 4));
+
+// string = string.slice(0, 4);
+
+// console.log(string);
