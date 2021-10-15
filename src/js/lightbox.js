@@ -2,10 +2,13 @@ import lightboxTpl from '../templates/lightbox.hbs';
 import localStorage from '../js/local_storage';
 import refs from '../js/refs.js';
 
-const { cardsContainer, lightboxContainer, backdrop, closeBtn, watchedBtn, queueBtn } = refs;
+const { cardsContainer, lightboxContainer, backdrop, closeBtn, } = refs;
 
 cardsContainer.addEventListener('click', onCardsContainerClick);
 backdrop.addEventListener('click', onBackdropClick);
+
+let watchedArr = [];
+let queueArr = [];
 
 function onCardsContainerClick(e) {
   e.preventDefault();
@@ -30,9 +33,14 @@ function onCardsContainerClick(e) {
   const markup = lightboxTpl(dataFilm);
 
   lightboxContainer.innerHTML = markup;
-  console.log(watchedBtn);
-  // watchedBtn.addEventListener('click', addToWatchedHandler);
 
+  const watchedBtn = document.querySelector('.js-watched');
+  const queueBtn = document.querySelector('.js-queue');
+
+  // const div = document.querySelector('.lightbox__buttons');
+  // console.log(div);
+  watchedBtn.addEventListener('click', addToWatchedHandler);
+  queueBtn.addEventListener('click', addToQueueHandler);
   window.addEventListener('keydown', onEscKeyPress, { once: true });
   // closeBtn.addEventListener('click', onCloseLightbox, { once: true });
 
@@ -48,14 +56,12 @@ function onCloseLightbox(e) {
 function onBackdropClick(e) {
   if (e.target === e.currentTarget) {
     onCloseLightbox(e);
-    // lightboxContainer.insertAdjacentHTML = '';
   }
 }
 
 function onEscKeyPress(e) {
   if (e.code === 'Escape') {
     onCloseLightbox(e);
-    // lightboxContainer.insertAdjacentHTML = '';
   }
 }
 
@@ -70,10 +76,54 @@ function findFilm(filmId, filmsArray) {
 
   return filmData;
 }
-function addToWatchedHandler() {
-  let watchedArr = [];
+
+// ----------------------- добавляет фильмы watched на local storage -----------------
+function addToWatchedHandler(e) {
+  
   const modalFilm = localStorage.getLocalStorage('modalFilm');
   watchedArr.push(modalFilm);
   localStorage.setLocalStorage('watched', watchedArr);
-}
-// watchedBtn.addEventListener('click', addToWatchedHandler);
+
+  const filmId = Number(e.target.dataset.id);
+
+  const watchedFilms = localStorage.getLocalStorage('watched');
+  const findFilmToDelete = watchedFilms.find(el => {
+    console.log(watchedFilms.indexOf(el));
+    return el.id === filmId;
+  }
+  );
+  console.log(findFilmToDelete);
+  const index = watchedFilms.indexOf(findFilmToDelete);
+  console.log(index);
+
+
+  // if (findFilmToDelete) {
+  //   watchedFilms.
+  // }
+};
+function addToQueueHandler(e) {
+  
+  const modalFilm = localStorage.getLocalStorage('modalFilm');
+  queueArr.push(modalFilm);
+  localStorage.setLocalStorage('queue', queueArr);
+
+  const filmId = Number(e.target.dataset.id);
+
+  const queueFilms = localStorage.getLocalStorage('queue');
+  const findFilmToDelete = queueFilms.find(el => {
+    console.log(queueFilms.indexOf(el));
+    return el.id === filmId;
+  }
+  );
+  console.log(findFilmToDelete);
+  const index = queueFilms.indexOf(findFilmToDelete);
+  console.log(index);
+
+
+  // if (findFilmToDelete) {
+  //   watchedFilms.
+  // }
+};
+
+console.log(localStorage.getLocalStorage('watched'));
+
