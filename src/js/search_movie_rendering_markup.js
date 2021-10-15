@@ -1,8 +1,11 @@
 import requests from './requests.js';
 import refs from '../js/refs.js';
 import LS from './local_storage.js';
+import GenresDataWork from './genres';
 // import cardMarkup from '../template/cardMarkup.hbs';
 const { formSearch, cardContainer } = refs;
+
+const genresDataWork = new GenresDataWork();
 
 formSearch.addEventListener('submit', onFormSearchsubmit);
 
@@ -17,6 +20,7 @@ function onFormSearchsubmit(e) {
     .then(({ results }) => {
       // cardContainer.insertAdjacentHTML('beforeend', cardMarkup(results));
       console.log(results);
+      genresDataWork.addGenres(results);
       requests.createMarkup(results);
       LS.setLocalStorage('Query', results);
     })
