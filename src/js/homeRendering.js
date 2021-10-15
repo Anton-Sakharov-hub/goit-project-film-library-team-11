@@ -7,13 +7,12 @@ export default function homeRendering() {
     .trendingFetch()
     .then(({ results, total_results }) => {
       requests.createMarkup(results);
-      homePagePagination._options.totalItems = total_results;
+      homePagePagination.setTotalItems(total_results);
+      homePagePagination.movePageTo(1);
       LS.setLocalStorage('Query', results);
     })
     .catch(err => console.log(err));
 }
-
-homeRendering();
 
 homePagePagination.on('afterMove', event => {
   requests.page = event.page;
@@ -25,3 +24,5 @@ homePagePagination.on('afterMove', event => {
     })
     .catch(err => console.log(err));
 });
+
+homeRendering();

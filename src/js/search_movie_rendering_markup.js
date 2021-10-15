@@ -2,7 +2,6 @@ import requests from './requests.js';
 import refs from '../js/refs.js';
 import LS from './local_storage.js';
 import { searchMoviePagination } from './pagination-btns';
-// import cardMarkup from '../template/cardMarkup.hbs';
 const { formSearch } = refs;
 
 formSearch.addEventListener('submit', onFormSearchsubmit);
@@ -16,7 +15,8 @@ function onFormSearchsubmit(e) {
     .movieFetch()
     .then(({ results, total_results }) => {
       requests.createMarkup(results);
-      searchMoviePagination._options.totalItems = total_results;
+      searchMoviePagination.setTotalItems(total_results);
+      searchMoviePagination.movePageTo(1);
       LS.setLocalStorage('Query', results);
     })
     .catch(err => console.log(err));
