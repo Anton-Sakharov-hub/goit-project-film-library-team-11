@@ -2,7 +2,7 @@ import requests from './requests.js';
 import refs from '../js/refs.js';
 import LS from './local_storage.js';
 import { searchMoviePagination } from './pagination-btns';
-const { formSearch } = refs;
+const { formSearch, paginationHome, paginationSearch } = refs;
 
 formSearch.addEventListener('submit', onFormSearchsubmit);
 
@@ -15,6 +15,10 @@ function onFormSearchsubmit(e) {
     .movieFetch()
     .then(({ results, total_results }) => {
       requests.createMarkup(results);
+
+      paginationSearch.classList.remove('visually-hidden');
+      paginationHome.classList.add('visually-hidden');
+
       searchMoviePagination.setTotalItems(total_results);
       searchMoviePagination.movePageTo(1);
       LS.setLocalStorage('Query', results);
