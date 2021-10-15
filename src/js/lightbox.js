@@ -7,8 +7,8 @@ const { cardsContainer, lightboxContainer, backdrop, closeBtn, } = refs;
 cardsContainer.addEventListener('click', onCardsContainerClick);
 backdrop.addEventListener('click', onBackdropClick);
 
-let watchedArr = [];
-let queueArr = [];
+// let watchedArr = [];
+// let queueArr = [];
 
 function onCardsContainerClick(e) {
   e.preventDefault();
@@ -26,21 +26,21 @@ function onCardsContainerClick(e) {
 
   const filmsArray = localStorage.getLocalStorage('Query'); // это массив фильмов с local storage
 
-  // id = 550988;
   const dataFilm = findFilm(filmId, filmsArray);
+
   localStorage.setLocalStorage('modalFilm', dataFilm);
 
   const markup = lightboxTpl(dataFilm);
 
   lightboxContainer.innerHTML = markup;
 
-  const watchedBtn = document.querySelector('.js-watched');
-  const queueBtn = document.querySelector('.js-queue');
+  const btnsRefs = addModalBtnsRefs();
+  
 
   // const div = document.querySelector('.lightbox__buttons');
   // console.log(div);
-  watchedBtn.addEventListener('click', addToWatchedHandler);
-  queueBtn.addEventListener('click', addToQueueHandler);
+  btnsRefs.watchedBtn.addEventListener('click', addToWatchedHandler);
+  btnsRefs.queueBtn.addEventListener('click', addToQueueHandler);
   window.addEventListener('keydown', onEscKeyPress, { once: true });
   // closeBtn.addEventListener('click', onCloseLightbox, { once: true });
 
@@ -77,53 +77,37 @@ function findFilm(filmId, filmsArray) {
   return filmData;
 }
 
-// ----------------------- добавляет фильмы watched на local storage -----------------
+// ----------------------- добавляет фильмы watchedLibrary и queueLibrary на local storage -----------------
+
 function addToWatchedHandler(e) {
-  
+  const watchedFilms = localStorage.getLocalStorage('watchedLibrary') || [];
   const modalFilm = localStorage.getLocalStorage('modalFilm');
-  watchedArr.push(modalFilm);
-  localStorage.setLocalStorage('watched', watchedArr);
-
   const filmId = Number(e.target.dataset.id);
+  const checkedFilmInWatched = watchedFilms.find(el => el.id === filmId);
 
-  const watchedFilms = localStorage.getLocalStorage('watched');
-  const findFilmToDelete = watchedFilms.find(el => {
-    console.log(watchedFilms.indexOf(el));
-    return el.id === filmId;
-  }
-  );
-  console.log(findFilmToDelete);
-  const index = watchedFilms.indexOf(findFilmToDelete);
-  console.log(index);
-
-
-  // if (findFilmToDelete) {
-  //   watchedFilms.
-  // }
+  if (checkedFilmInWatched) {
+    localStorage.setLocalStorage('watchedLibrary', watchedFilms.filter(el => el.id !== filmId));
+  } else {
+    localStorage.setLocalStorage('watchedLibrary', [...watchedFilms, modalFilm]);
+  };
 };
+
 function addToQueueHandler(e) {
-  
+  const queueFilms = localStorage.getLocalStorage('queueLibrary') || [];
   const modalFilm = localStorage.getLocalStorage('modalFilm');
-  queueArr.push(modalFilm);
-  localStorage.setLocalStorage('queue', queueArr);
-
   const filmId = Number(e.target.dataset.id);
+  const checkedFilmInQueue = queueFilms.find(el => el.id === filmId);
 
-  const queueFilms = localStorage.getLocalStorage('queue');
-  const findFilmToDelete = queueFilms.find(el => {
-    console.log(queueFilms.indexOf(el));
-    return el.id === filmId;
-  }
-  );
-  console.log(findFilmToDelete);
-  const index = queueFilms.indexOf(findFilmToDelete);
-  console.log(index);
-
-
-  // if (findFilmToDelete) {
-  //   watchedFilms.
-  // }
+  if (checkedFilmInQueue) {
+    localStorage.setLocalStorage('queueLibrary', queueFilms.filter(el => el.id !== filmId));
+  } else {
+    localStorage.setLocalStorage('queueLibrary', [...queueFilms, modalFilm]);
+  };
 };
 
-console.log(localStorage.getLocalStorage('watched'));
-
+function addModalBtnsRefs() {
+  return {
+    watchedBtn: document.querySelector('.js-watched'),
+    queueBtn: document.querySelector('.js-queue'),
+  };
+};
