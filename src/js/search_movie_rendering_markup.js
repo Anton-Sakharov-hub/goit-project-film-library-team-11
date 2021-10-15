@@ -1,8 +1,11 @@
 import requests from './requests.js';
 import refs from '../js/refs.js';
 import LS from './local_storage.js';
+import GenresDataWork from './genres';
 import { searchMoviePagination } from './pagination-btns';
 const { formSearch, paginationHome, paginationSearch } = refs;
+
+const genresDataWork = new GenresDataWork();
 
 formSearch.addEventListener('submit', onFormSearchsubmit);
 
@@ -14,6 +17,8 @@ function onFormSearchsubmit(e) {
   requests
     .movieFetch()
     .then(({ results, total_results }) => {
+      genresDataWork.addGenres(results);
+
       requests.createMarkup(results);
 
       paginationSearch.classList.remove('visually-hidden');

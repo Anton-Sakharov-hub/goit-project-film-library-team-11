@@ -14,10 +14,10 @@
         <p class="card__name">{{name}}</p>
         {{/if}}
         <p class="card__text">
-                   {{#each genre_ids}}
+            <span class="genresSpan">{{genre_ids}}</span> |
+                   {{!-- {{#each genre_ids}}
             <span class='card__item'>{{this}}</span>
-            {{/each}} 
-            |
+            {{/each}}  --}}
             {{#if release_date}}
             <span>{{release_date}}</span>
             {{else}}

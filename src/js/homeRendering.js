@@ -2,12 +2,16 @@ import requests from './requests.js';
 import refs from '../js/refs.js';
 import LS from './local_storage.js';
 import { homePagePagination } from './pagination-btns';
+import GenresDataWork from './genres'
 const { paginationHome, paginationSearch } = refs;
+
+const genresDataWork = new GenresDataWork();
 
 export default function homeRendering() {
   requests
     .trendingFetch()
     .then(({ results, total_results }) => {
+      genresDataWork.addGenres(results);
       requests.createMarkup(results);
 
       paginationSearch.classList.add('visually-hidden');
