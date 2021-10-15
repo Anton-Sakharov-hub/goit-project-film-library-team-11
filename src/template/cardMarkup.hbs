@@ -1,22 +1,13 @@
 {{#each this}}
-{{!-- <div class="container container__card-position"> --}}
     <li class="card__list-item" data-id="{{id}}">
-
+        
         {{#if poster_path}}
-        <img class="card__poster" src="https://image.tmdb.org/t/p/original{{poster_path}}"
+        <img class="card__poster" src="https://image.tmdb.org/t/p/w300/{{poster_path}}"
             loading="lazy" alt="{{title}} poster" title="{{title}}" data-id="{{id}}" />
         {{else}}
         <img class="card__poster" src="https://w.zhinka.tv/templates/Default/dleimages/no_image.jpg"
             loading="lazy" alt="{{title}} poster" title="{{title}}" data-id="{{id}}" />
         {{/if}}
-
-{{!-- {{#if poster_path}}
-<img class="card__poster" src="https://image.tmdb.org/t/p/original{{poster_path}}" loading="lazy" alt="{{title}} poster"
-    title="{{title}}" data-id="{{id}}" />
-{{else}}
-<img class="card__poster" src="../images/no_image.jpg" loading="lazy" alt="{{title}} poster" title="{{title}}"
-    data-id="{{id}}" />
-{{/if}} --}}
 
         {{#if title}}
         <p class="card__name">{{title}}</p>
@@ -36,6 +27,4 @@
             <span class="card__vote_average">{{vote_average}}</span>
         </p>
     </li>
-    {{!--
-</div> --}}
 {{/each}}
