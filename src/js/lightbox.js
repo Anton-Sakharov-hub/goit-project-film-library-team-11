@@ -2,13 +2,10 @@ import lightboxTpl from '../templates/lightbox.hbs';
 import localStorage from '../js/local_storage';
 import refs from '../js/refs.js';
 
-const { cardsContainer, lightboxContainer, backdrop, closeBtn, } = refs;
+const { cardsContainer, lightboxContainer, backdrop, } = refs;
 
 cardsContainer.addEventListener('click', onCardsContainerClick);
 backdrop.addEventListener('click', onBackdropClick);
-
-// let watchedArr = [];
-// let queueArr = [];
 
 function onCardsContainerClick(e) {
   e.preventDefault();
@@ -22,8 +19,6 @@ function onCardsContainerClick(e) {
   console.log((e.target.dataset.id));
   const filmId = Number(e.target.dataset.id);
   console.log(filmId);
-  // renderModalCard(data);
-  // console.log(e.target.dataset.filmid);
 
   const filmsArray = localStorage.getLocalStorage('Query'); // это массив фильмов с local storage
 
@@ -55,14 +50,13 @@ function onCloseLightbox(e) {
   btnsRefs.watchedBtn.removeEventListener('click', addToWatchedHandler);
   btnsRefs.queueBtn.removeEventListener('click', addToQueueHandler);
 
-  // window.removeEventListener('keyup', onEscKeyPress);
-};
+}
 
 function onBackdropClick(e) {
   if (e.target === e.currentTarget) {
     onCloseLightbox(e);
-  };
-};
+  }
+}
 
 function onEscKeyPress(e) {
   if (e.code === 'Escape') {
@@ -70,13 +64,7 @@ function onEscKeyPress(e) {
   };
 };
 
-// function renderModalCard(data) {
-//   lightboxContainer.insertAdjacentHTML('beforeend', lightboxTpl(data));
-// }
-
 function findFilm(filmId, filmsArray) {
-  // console.log(filmId);
-
   const filmData = filmsArray.find(film => filmId === film.id);
 
   return filmData;
@@ -116,4 +104,3 @@ function addModalBtnsRefs() {
     queueBtn: document.querySelector('.js-queue'),
   };
 };
-

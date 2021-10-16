@@ -1,60 +1,58 @@
 
 <div class="lightbox__container ">
 
-<button class="close" data-modal-close>
-      <img
+    <button class="close" data-modal-close>
+      {{!-- <img
         src="./images/close.svg"
         alt="{{alt}}"
         class="close__cross"
         data-action="close-lightbox"
-      />
+      /> --}}
+        <svg class="close__cross">
+            <use href="./images/sprite.svg#icon-close-modal"></use>
+        </svg>
     </button>
-
-<div class="poster"><img src="https://image.tmdb.org/t/p/w300/{{poster_path}}" alt="{{original_title}} poster"
-        data-filmId={{id}} class="lightbox__image" /></div>
-
-    
-        
-        <div class="lightbox__content">
-            <h2 class="lightbox__name">{{title}}</h2>
-            <div class="info">
-                <ul class="info-list">
-                    <li class="info-list__item">Vote/Votes</li>
-                    <li class="info-list__item">Popularity</li>
-                    <li class="info-list__item">Original Title</li>
-                    <li class="info-list__item">Genre</li>
-                </ul>
-                <ul class="info-data">
-                    <li class="info-list__item">
-                        <span class="rating-mark">{{vote_average}}</span>
-                        <span class="info-list">/</span>
-                        <span class="rating-mark rating-mark__votes">{{vote_count}}</span>
-                    </li>
-                    <li class="info-list__item">{{popularity}}</li>
-                    <li class="info-list__item">{{original_title}}</li>
-                    <li class="info-list__item">{{genre_ids}}</li>
-                </ul>
-            </div>
-            <div class="about">
-                <h3>ABOUT</h3>
-
-                <p class="film__description">
-                    {{overview}}
-                </p>
-            </div>
-
-
-
-
-            <div class="lightbox__buttons">
-                <button class="button__modal button js-watched" data-id="{{id}}">ADD TO WATCHED</button>
-
-                <button class="button__modal button js-queue" data-id="{{id}}">ADD TO QUEUE</button>
-            </div>
-        </div>
-
+    <div class="poster">
+            {{#if poster_path}}
+        <img class="card__poster" src="https://image.tmdb.org/t/p/w300{{poster_path}}" loading="lazy" alt="{{title}} poster"
+            title="{{title}}" data-id="{{id}}" />
+        {{else}}
+        <img class="card__poster" src="https://w.zhinka.tv/templates/Default/dleimages/no_image.jpg" loading="lazy"
+            alt="{{title}} poster" title="{{title}}" data-id="{{id}}" />
+        {{/if}}
     </div>
+    <div class="lightbox__content">
+        <h2 class="lightbox__name">{{title}}</h2>
+        <div class="info">
+            <ul class="info-list">
+                <li class="info-list__item">Vote/Votes</li>
+                <li class="info-list__item">Popularity</li>
+                <li class="info-list__item">Original Title</li>
+                <li class="info-list__item">Genre</li>
+            </ul>
+            <ul class="info-data">
+                <li class="info-list__item">
+                    <span class="rating-mark">{{vote_average}}</span>
+                    <span class="info-list">/</span>
+                    <span class="rating-mark rating-mark__votes">{{vote_count}}</span>
+                </li>
+                <li class="info-list__item">{{popularity}}</li>
+                <li class="info-list__item">{{original_title}}</li>
+                <li class="info-list__item">{{genre_ids}}</li>
+            </ul>
+        </div>
+        <div class="about">
+            <h3>ABOUT</h3>
 
+            <p class="film__description">
+                {{overview}}
+            </p>
+        </div>
+        <div class="lightbox__buttons">
+            <button class="button__modal button js-watched" data-id="{{id}}">ADD TO WATCHED</button>
+
+            <button class="button__modal button js-queue" data-id="{{id}}">ADD TO QUEUE</button>
+        </div>
     </div>
 </div>
 
