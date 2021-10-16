@@ -1,4 +1,5 @@
 export default {
+  body: document.querySelector('body'),
   // --------- header --------
   header: document.querySelector('.header-js'),
   logo: document.querySelector('.logo-js'),
@@ -7,6 +8,7 @@ export default {
   btnSubmit: document.querySelector('.btn-submit-js'),
   formSearch: document.querySelector('.form-js'),
   navLibrary: document.querySelector('.nav-library-js'),
+  inputCheckbox: document.querySelector('#theme-switch-toggle'),
   // ----------mainScn-------------
   // mainScn: document.querySelector('.main-scn'),
   // -------- footer --------------
