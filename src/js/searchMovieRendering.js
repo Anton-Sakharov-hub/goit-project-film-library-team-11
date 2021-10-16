@@ -1,9 +1,12 @@
 import requests from './requests.js';
 import refs from './refs.js';
 import LS from './local_storage.js';
-import { searchMoviePagination } from './pagination-btns.js';
 import { togleClass, createMarkup } from './commonFunction.js';
+import GenresDataWork from './GenresDataWork';
+import { searchMoviePagination } from './pagination-btns';
 const { formSearch, paginationHome, paginationSearch } = refs;
+
+const genresDataWork = new GenresDataWork();
 
 formSearch.addEventListener('submit', onFormSearchsubmit);
 
@@ -33,7 +36,9 @@ searchMoviePagination.on('afterMove', event => {
   requests
     .movieFetch()
     .then(({ results }) => {
-      createMarkup(results);
+      genresDataWork.addGenres(results);
+      genresDataWork.changeDate(results);
+      requests.createMarkup(results);
       LS.setLocalStorage('Query', results);
     })
     .catch(err => console.log(err));
