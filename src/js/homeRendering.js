@@ -2,7 +2,7 @@ import requests from './requests.js';
 import refs from '../js/refs.js';
 import LS from './local_storage.js';
 import { homePagePagination } from './pagination-btns';
-import GenresDataWork from './genres'
+import GenresDataWork from './GenresDataWork'
 const { paginationHome, paginationSearch } = refs;
 
 const genresDataWork = new GenresDataWork();

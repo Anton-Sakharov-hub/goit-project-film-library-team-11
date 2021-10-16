@@ -1,7 +1,7 @@
 import requests from './requests.js';
 import refs from '../js/refs.js';
 import LS from './local_storage.js';
-import GenresDataWork from './genres';
+import GenresDataWork from './GenresDataWork';
 import { searchMoviePagination } from './pagination-btns';
 const { formSearch, paginationHome, paginationSearch } = refs;
 

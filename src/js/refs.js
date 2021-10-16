@@ -18,6 +18,9 @@ export default {
   lightboxContainer: document.querySelector('.js-lightbox'),
   backdrop: document.querySelector('.lightbox__overlay'),
   // closeBtn: document.querySelector('[data-action="close-lightbox"]'),
+  // ---------- library --------------
+  btnWatched: document.querySelector('.btn-watched-js'),
+  btnQueue: document.querySelector('.btn-queue-js'),
   // --------------pagination--------------
   paginationHome: document.getElementById('pagination1'),
   paginationSearch: document.getElementById('pagination2'),

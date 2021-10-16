@@ -45,7 +45,7 @@ function onCardsContainerClick(e) {
   window.addEventListener('keydown', onEscKeyPress, { once: true });
   // closeBtn.addEventListener('click', onCloseLightbox, { once: true });
 
-  console.log(filmsArray);
+  // console.log(filmsArray);
 }
 
 function onCloseLightbox(e) {
@@ -116,3 +116,4 @@ function addModalBtnsRefs() {
     queueBtn: document.querySelector('.js-queue'),
   };
 };
+
