@@ -13,10 +13,16 @@ export default {
   teamModalBtn: document.querySelector('[data-teamModalBtn]'),
   // --------- cardContainer -------------
   cardContainer: document.querySelector('[data-cardContainer]'),
-    // --------- lightbox ------------
+  // --------- lightbox ------------
   cardsContainer: document.querySelector('.card__list'),
   lightboxContainer: document.querySelector('.js-lightbox'),
   backdrop: document.querySelector('.lightbox__overlay'),
-  closeBtn: document.querySelector('[data-action="close-lightbox"]'),
+  // closeBtn: document.querySelector('[data-action="close-lightbox"]'),
+  // ---------- library --------------
+  btnWatched: document.querySelector('.btn-watched-js'),
+  btnQueue: document.querySelector('.btn-queue-js'),
+  // --------------pagination--------------
+  paginationHome: document.getElementById('pagination1'),
+  paginationSearch: document.getElementById('pagination2'),
 };
 
