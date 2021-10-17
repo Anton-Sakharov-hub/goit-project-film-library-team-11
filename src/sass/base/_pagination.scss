@@ -1,0 +1,21 @@
+.tui-page-btn {
+  border-radius: 3px;
+}
+
+strong.tui-page-btn.tui-is-selected.acent {
+  background: $accentColor;
+  border-color: $accentColor;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $accentColor;
+  }
+}
+
+.tui-first-child1 {
+  border-left: 1px solid $accentColor;
+}
+
+.tui-last-child2 {
+  border-right: 1px solid $accentColor;
+}

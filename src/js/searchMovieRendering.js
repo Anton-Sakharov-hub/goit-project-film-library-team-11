@@ -4,7 +4,7 @@ import LS from './local_storage.js';
 import { togleClass, createMarkup } from './commonFunction.js';
 import GenresDataWork from './GenresDataWork';
 import { searchMoviePagination } from './pagination-btns';
-const { formSearch, paginationHome, paginationSearch } = refs;
+const { header, formSearch, paginationHome, paginationSearch } = refs;
 
 const genresDataWork = new GenresDataWork();
 
@@ -31,8 +31,8 @@ const updateQuery = newQuery => {
   requests.query = newQuery;
 };
 
-searchMoviePagination.on('afterMove', event => {
-  requests.page = event.page;
+searchMoviePagination.on('afterMove', e => {
+  requests.page = e.page;
   requests
     .movieFetch()
     .then(({ results }) => {
@@ -40,6 +40,10 @@ searchMoviePagination.on('afterMove', event => {
       genresDataWork.changeDate(results);
       createMarkup(results);
       LS.setLocalStorage('Query', results);
+      header.scrollIntoView({
+        block: 'start',
+        behavior: 'smooth',
+      });
     })
     .catch(err => console.log(err));
 });
