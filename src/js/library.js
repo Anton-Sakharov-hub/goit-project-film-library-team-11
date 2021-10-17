@@ -37,3 +37,43 @@ function onBtnQueueCLick(e) {
 
   cardContainer.innerHTML = markup;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// рабочий код
+// [].reduce((acc, item) => {
+//    acc.byId[item.id] = item;
+//    acc.allIds.push(item.id);
+//    return acc   
+// }, { byId: {}, allIds: [] })
+// {byId: {…}, allIds: Array(0)}
+
+// пример работы
+// [{ id:1, name: 'Vasya'}, {id:3, name: 'Petya'}].reduce((acc, item) => {
+//    acc.byId[item.id] = item;
+//    acc.allIds.push(item.id);
+//    return acc   
+// }, { byId: {}, allIds: [] })
+
+// пример создания normolize data объекта 
+// var normilizedObj = [{ id:1, name: 'Vasya'}, {id:3, name: 'Petya'}].reduce((acc, item) => {
+//    acc.byId[item.id] = item;
+//    acc.allIds.push(item.id);
+//    return acc   
+// }, { byId: {}, allIds: [] })
