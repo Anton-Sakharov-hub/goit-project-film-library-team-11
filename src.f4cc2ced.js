@@ -36,4 +36,4 @@ var e,t=arguments[3];!function(t,r){"object"==typeof exports&&"object"==typeof m
 },{"../js/refs.js":"VyiV","../template/cardMarkup.hbs":"cR9y","../js/lightbox":"bLn9","../js/local_storage":"Y1Ju"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/header.js"),require("./js/homeRendering.js"),require("./js/pagination-btns"),require("./js/lightbox"),require("./js/local_storage"),require("./js/library"),require("./js/GenresDataWork");
 },{"./sass/main.scss":"clu1","./js/header.js":"cGsR","./js/homeRendering.js":"Q2A9","./js/pagination-btns":"JqCE","./js/lightbox":"bLn9","./js/local_storage":"Y1Ju","./js/library":"BfNj","./js/GenresDataWork":"haAF"}]},{},["Focm"], null)
-//# sourceMappingURL=/goit-project-film-library-team-11/src.8ac89517.js.map
+//# sourceMappingURL=/goit-project-film-library-team-11/src.f4cc2ced.js.map
