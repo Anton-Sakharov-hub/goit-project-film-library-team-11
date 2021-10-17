@@ -18,8 +18,8 @@ function onBtnMyLibraryCLick(e) {
 
 function onBtnWatchedCLick(e) {
     e.preventDefault();
-    const watchedArray = localStorage.getLocalStorage('watched');
-    console.log(localStorage.getLocalStorage('watched'));
+    const watchedArray = localStorage.getLocalStorage('watchedLibrary');
+    console.log(localStorage.getLocalStorage('watchedLibrary'));
 
 
     const markup = cardMarkup(watchedArray);
@@ -29,8 +29,8 @@ function onBtnWatchedCLick(e) {
 
 function onBtnQueueCLick(e) {
     e.preventDefault();
-    const queueArray = localStorage.getLocalStorage('queue');
-    console.log(localStorage.getLocalStorage('queue'));
+    const queueArray = localStorage.getLocalStorage('queueLibrary');
+    console.log(localStorage.getLocalStorage('queueLibrary'));
 
 
     const markup = cardMarkup(queueArray);

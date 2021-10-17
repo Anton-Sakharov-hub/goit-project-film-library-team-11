@@ -4,6 +4,8 @@ import refs from '../js/refs.js';
 
 const { cardsContainer, lightboxContainer, backdrop, } = refs;
 
+let modalFilm = {};
+
 cardsContainer.addEventListener('click', onCardsContainerClick);
 backdrop.addEventListener('click', onBackdropClick);
 
@@ -24,7 +26,8 @@ function onCardsContainerClick(e) {
 
   const dataFilm = findFilm(filmId, filmsArray);
 
-  localStorage.setLocalStorage('modalFilm', dataFilm);
+  // localStorage.setLocalStorage('modalFilm', dataFilm);
+  modalFilm =  dataFilm;
 
   const markup = lightboxTpl(dataFilm);
 
@@ -74,7 +77,6 @@ function findFilm(filmId, filmsArray) {
 
 function addToWatchedHandler(e) {
   const watchedFilms = localStorage.getLocalStorage('watchedLibrary') || [];
-  const modalFilm = localStorage.getLocalStorage('modalFilm');
   const filmId = Number(e.target.dataset.id);
   const checkedFilmInWatched = watchedFilms.find(el => el.id === filmId);
 
@@ -87,7 +89,6 @@ function addToWatchedHandler(e) {
 
 function addToQueueHandler(e) {
   const queueFilms = localStorage.getLocalStorage('queueLibrary') || [];
-  const modalFilm = localStorage.getLocalStorage('modalFilm');
   const filmId = Number(e.target.dataset.id);
   const checkedFilmInQueue = queueFilms.find(el => el.id === filmId);
 
