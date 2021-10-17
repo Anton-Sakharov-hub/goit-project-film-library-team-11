@@ -38,7 +38,7 @@ searchMoviePagination.on('afterMove', event => {
     .then(({ results }) => {
       genresDataWork.addGenres(results);
       genresDataWork.changeDate(results);
-      requests.createMarkup(results);
+      createMarkup(results);
       LS.setLocalStorage('Query', results);
     })
     .catch(err => console.log(err));
