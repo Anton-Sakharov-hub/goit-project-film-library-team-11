@@ -21,6 +21,7 @@ export default {
   // ---------- library --------------
   btnWatched: document.querySelector('.btn-watched-js'),
   btnQueue: document.querySelector('.btn-queue-js'),
+  sentinel: document.getElementById('sentinel'),
   // --------------pagination--------------
   paginationHome: document.getElementById('pagination1'),
   paginationSearch: document.getElementById('pagination2'),
