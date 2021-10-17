@@ -38,4 +38,4 @@ var e,t=arguments[3];!function(t,r){"object"==typeof exports&&"object"==typeof m
 },{"./requests.js":"b7K8","./refs.js":"VyiV","./local_storage.js":"Y1Ju","./commonFunction.js":"kQHD","./GenresDataWork":"haAF","./pagination-btns":"JqCE"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/header"),require("./js/homeRendering"),require("./js/pagination-btns"),require("./js/lightbox"),require("./js/local_storage"),require("./js/library"),require("./js/GenresDataWork"),require("./js/searchMovieRendering");
 },{"./sass/main.scss":"clu1","./js/header":"cGsR","./js/homeRendering":"Q2A9","./js/pagination-btns":"JqCE","./js/lightbox":"bLn9","./js/local_storage":"Y1Ju","./js/library":"BfNj","./js/GenresDataWork":"haAF","./js/searchMovieRendering":"OIVC"}]},{},["Focm"], null)
-//# sourceMappingURL=/goit-project-film-library-team-11/src.3ad27a85.js.map
+//# sourceMappingURL=/goit-project-film-library-team-11/src.9ca98c22.js.map
