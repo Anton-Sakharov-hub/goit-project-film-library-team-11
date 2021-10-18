@@ -4,7 +4,7 @@ import LS from './local_storage.js';
 import { togleClass, createMarkup } from './commonFunction.js';
 import GenresDataWork from './GenresDataWork';
 import { searchMoviePagination } from './pagination-btns';
-
+import { hidePreloader, showPreloader } from './homeRendering';
 //импорт toastr notification
 import toastr from 'toastr';
 import 'toastr/build/toastr.css';
@@ -34,6 +34,7 @@ const genresDataWork = new GenresDataWork();
 formSearch.addEventListener('submit', onFormSearchsubmit);
 
 function onFormSearchsubmit(e) {
+  showPreloader();
   const input = e.currentTarget.elements.query;
   e.preventDefault();
   updateQuery(input.value);
@@ -41,12 +42,14 @@ function onFormSearchsubmit(e) {
     .movieFetch()
     .then(({ results, total_results }) => {
       createMarkup(results);
+
       togleClass(paginationSearch, paginationHome, 'visually-hidden');
       searchMoviePagination.setTotalItems(total_results);
       searchMoviePagination.movePageTo(1);
       LS.setLocalStorage('Query', results);
     })
-    .catch(toastr.warning('Пожалуйста, введите ваш запроc'));
+    .catch(err => console.log(err))
+    .finally(hidePreloader);
 }
 
 const updateQuery = newQuery => {
@@ -54,6 +57,7 @@ const updateQuery = newQuery => {
 };
 
 searchMoviePagination.on('afterMove', e => {
+  showPreloader();
   requests.page = e.page;
   requests
     .movieFetch()
@@ -67,5 +71,6 @@ searchMoviePagination.on('afterMove', e => {
         behavior: 'smooth',
       });
     })
-    .catch(err => console.log(err));
+    .catch(err => console.log(err))
+    .finally(hidePreloader);
 });
