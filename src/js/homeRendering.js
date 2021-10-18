@@ -12,13 +12,13 @@ export default function homeRendering() {
   requests
     .trendingFetch()
     .then(({ results, total_results }) => {
+      refs.preloader.classList.remove('done');
+      setTimeout(preloader, 500);
       createMarkup(results);
       togleClass(paginationHome, paginationSearch, 'visually-hidden');
       homePagePagination.setTotalItems(total_results);
       homePagePagination.movePageTo(1);
       LS.setLocalStorage('Query', results);
-      refs.preloader.classList.remove('done');
-      setTimeout(preloader, 200);
     })
     .catch(err => console.log(err));
 }
@@ -28,11 +28,12 @@ homePagePagination.on('afterMove', event => {
   requests
     .trendingFetch()
     .then(({ results }) => {
+      refs.preloader.classList.remove('done');
+      setTimeout(preloader, 500);
       genresDataWork.addGenres(results);
       genresDataWork.changeDate(results);
       createMarkup(results);
       LS.setLocalStorage('Query', results);
-      setTimeout(preloader, 200);
       header.scrollIntoView({
         block: 'start',
         behavior: 'smooth',
