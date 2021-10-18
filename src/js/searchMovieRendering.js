@@ -4,6 +4,29 @@ import LS from './local_storage.js';
 import { togleClass, createMarkup } from './commonFunction.js';
 import GenresDataWork from './GenresDataWork';
 import { searchMoviePagination } from './pagination-btns';
+
+//импорт toastr notification
+import toastr from 'toastr';
+import 'toastr/build/toastr.css';
+//настройи toastr notification
+toastr.options = {
+  closeButton: false,
+  debug: true,
+  newestOnTop: false,
+  progressBar: true,
+  positionClass: 'toast-top-center',
+  preventDuplicates: true,
+  onclick: null,
+  showDuration: '300',
+  hideDuration: '1000',
+  timeOut: '3000',
+  extendedTimeOut: '1000',
+  showEasing: 'swing',
+  hideEasing: 'linear',
+  showMethod: 'fadeIn',
+  hideMethod: 'fadeOut',
+};
+
 const { header, formSearch, paginationHome, paginationSearch } = refs;
 
 const genresDataWork = new GenresDataWork();
@@ -14,7 +37,6 @@ function onFormSearchsubmit(e) {
   const input = e.currentTarget.elements.query;
   e.preventDefault();
   updateQuery(input.value);
-
   requests
     .movieFetch()
     .then(({ results, total_results }) => {
@@ -24,7 +46,7 @@ function onFormSearchsubmit(e) {
       searchMoviePagination.movePageTo(1);
       LS.setLocalStorage('Query', results);
     })
-    .catch(err => console.log(err));
+    .catch(toastr.warning('Пожалуйста, введите ваш запроc'));
 }
 
 const updateQuery = newQuery => {
