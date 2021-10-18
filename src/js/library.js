@@ -1,5 +1,5 @@
 import refs from '../js/refs.js';
-import cardMarkup from '../template/cardMarkup.hbs';
+import cardMarkup from '../templates/cardsTemplate.hbs';
 import localStorage from '../js/local_storage';
 
 
@@ -34,8 +34,8 @@ function onBtnWatchedCLick(e) {
   watchedQueueFlag = true;
   cardContainer.innerHTML = '';
   renewParam(3);
-    const watchedArray = localStorage.getLocalStorage('watchedLibrary');
-    console.log(localStorage.getLocalStorage('watchedLibrary'));
+    const watchedArray = localStorage.getLocalStorage('watchedLibrary') || [];
+    // console.log(localStorage.getLocalStorage('watchedLibrary'));
 
     // const markup = cardMarkup(watchedArray);
 
@@ -56,8 +56,7 @@ function onBtnQueueCLick(e) {
   renewParam(3);
   
 // console.log(renevParam(3));
-    const queueArray = localStorage.getLocalStorage('queueLibrary');
-    console.log(localStorage.getLocalStorage('queueLibrary'));
+    const queueArray = localStorage.getLocalStorage('queueLibrary') || [];
 
   
 
@@ -69,12 +68,11 @@ function onBtnQueueCLick(e) {
   
   cardContainer.insertAdjacentHTML('beforeend', cardMarkup(partOfQueueItems));
 
-  // loadMoreQueue()
+  loadMoreQueue()
 }
 
 const loadMoreWatched = function () {
-  const watchedLibrary = localStorage.getLocalStorage('watchedLibrary');
-  console.log(watchedLibrary);
+  const watchedLibrary = localStorage.getLocalStorage('watchedLibrary') || [];
 
    let numberOfItems = 3;
   visualNumberOfItems += numberOfItems;
@@ -88,8 +86,7 @@ const loadMoreWatched = function () {
 
 
 const loadMoreQueue = function () {
-  const queueLibrary = localStorage.getLocalStorage('queueLibrary');
-  console.log(queueLibrary);
+  const queueLibrary = localStorage.getLocalStorage('queueLibrary') || [];
 
    let numberOfItems = 3;
   visualNumberOfItems += numberOfItems;
