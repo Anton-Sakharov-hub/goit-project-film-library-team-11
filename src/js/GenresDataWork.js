@@ -1,5 +1,4 @@
-import localStorage from "./local_storage";
-
+import localStorage from './local_storage';
 
 export default class GenresDataWork {
   constructor() {
@@ -25,7 +24,7 @@ export default class GenresDataWork {
       { id: 37, name: 'Western' },
     ];
   }
-  
+
   addGenres(filmData) {
     const genresIdsArr = filmData.map(film => {
       return film.genre_ids;
@@ -37,7 +36,7 @@ export default class GenresDataWork {
         return (id = genreObj.name);
       });
     });
-    
+
     const genresNamesForFilmData = genresNameArr.map(ArrNames => {
       if (ArrNames.length === 0) {
         return (ArrNames = 'No genre information');
@@ -46,22 +45,22 @@ export default class GenresDataWork {
       if (ArrNames.length === 1) {
         return ArrNames;
       }
-      
+
       if (ArrNames.length === 2) {
         return `${ArrNames[0]},  ${ArrNames[1]}`;
       }
-      
+
       if (ArrNames.length > 2) {
         return `${ArrNames[0]},  ${ArrNames[1]},  Other`;
       }
     });
-    
+
     let index = 0;
     filmData.forEach(el => {
       el.genre_ids = genresNamesForFilmData[index];
       index += 1;
     });
-  };
+  }
 
   changeDate(filmData) {
     filmData.forEach(el => {
@@ -70,11 +69,16 @@ export default class GenresDataWork {
       } else if (el.first_air_date || null) {
         el.first_air_date = el.first_air_date.slice(0, 4);
       }
+      if (el.release_date === undefined) {
+        return (el.release_date = 'No date');
+      }
+      if (el.first_air_date === undefined) {
+        return (el.first_air_date = 'No date');
+      }
       return;
     });
   }
-};
-
+}
 
 // export const genresData = [
 //       { id: 28, name: 'Action' },
@@ -97,11 +101,11 @@ export default class GenresDataWork {
 //       { id: 10752, name: 'War' },
 //       { id: 37, name: 'Western' },
 //     ];
-  
+
 // export function addGenres(filmData) {
-  //   const genresIdsArr = filmData.map(film => {
-    //     return film.genre_ids;
-    //   });
+//   const genresIdsArr = filmData.map(film => {
+//     return film.genre_ids;
+//   });
 //   console.log(genresIdsArr);
 
 //   const genresNameArr = genresIdsArr.map(el => {
@@ -141,28 +145,23 @@ export default class GenresDataWork {
 
 // localStorage.setLocalStorage('Query', addGenres(filmData));
 
-
-
-
-
-
 // export function renderGenres() {
 //   let genresEl = document.querySelectorAll('.genresSpan');
 //   genresEl = [...genresEl]
 //   console.log(genresEl);
 //   // let idData = (genresEl.dataset.genres).split(',');
 // //   idData = idData.map(el => Number(el));
-  
+
 // //   const filtredId = genresArr.filter(genre => { })
 // }
 
 //   let index = 0;
 //   filmData.forEach(el => {
-  //     el.genre_ids = genresName[index];
-  //     index += 1;
+//     el.genre_ids = genresName[index];
+//     index += 1;
 //   });
 // };
-// } 
+// }
 // const filmData = localStorage.getLocalStorage('Query');
 // console.log(filmData);
 
