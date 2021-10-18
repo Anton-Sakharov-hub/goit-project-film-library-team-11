@@ -141,6 +141,7 @@ function onLogoCLick(e) {
   changeContainerAtr('data-home', 'data-watched', 'data-queue');
 }
 
+// меняет атрибут контейнера для рендера разметки при работе с модалкой
 function changeContainerAtr(setAtr, reAtr1, reAtr2) {
   cardContainer.setAttribute(`${setAtr}`, '');
   const hasOtherDataAtr = cardContainer.hasAttribute(`${reAtr1}`) || cardContainer.hasAttribute(`${reAtr2}`);
