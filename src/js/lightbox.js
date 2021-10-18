@@ -4,6 +4,8 @@ import refs from '../js/refs.js';
 
 const { cardsContainer, lightboxContainer, backdrop, } = refs;
 
+let modalFilm = {};
+
 cardsContainer.addEventListener('click', onCardsContainerClick);
 backdrop.addEventListener('click', onBackdropClick);
 
@@ -14,17 +16,14 @@ function onCardsContainerClick(e) {
     return;
   }
 
-  console.log(e.target.nodeName);
   lightboxContainer.classList.add('is-open');
-  console.log((e.target.dataset.id));
   const filmId = Number(e.target.dataset.id);
-  console.log(filmId);
 
   const filmsArray = localStorage.getLocalStorage('Query'); // это массив фильмов с local storage
 
   const dataFilm = findFilm(filmId, filmsArray);
 
-  localStorage.setLocalStorage('modalFilm', dataFilm);
+  modalFilm =  dataFilm;
 
   const markup = lightboxTpl(dataFilm);
 
@@ -34,13 +33,10 @@ function onCardsContainerClick(e) {
   
 
   // const div = document.querySelector('.lightbox__buttons');
-  // console.log(div);
   btnsRefs.watchedBtn.addEventListener('click', addToWatchedHandler);
   btnsRefs.queueBtn.addEventListener('click', addToQueueHandler);
   window.addEventListener('keydown', onEscKeyPress, { once: true });
   // closeBtn.addEventListener('click', onCloseLightbox, { once: true });
-
-  // console.log(filmsArray);
 }
 
 function onCloseLightbox(e) {
@@ -74,7 +70,6 @@ function findFilm(filmId, filmsArray) {
 
 function addToWatchedHandler(e) {
   const watchedFilms = localStorage.getLocalStorage('watchedLibrary') || [];
-  const modalFilm = localStorage.getLocalStorage('modalFilm');
   const filmId = Number(e.target.dataset.id);
   const checkedFilmInWatched = watchedFilms.find(el => el.id === filmId);
 
@@ -87,7 +82,6 @@ function addToWatchedHandler(e) {
 
 function addToQueueHandler(e) {
   const queueFilms = localStorage.getLocalStorage('queueLibrary') || [];
-  const modalFilm = localStorage.getLocalStorage('modalFilm');
   const filmId = Number(e.target.dataset.id);
   const checkedFilmInQueue = queueFilms.find(el => el.id === filmId);
 

@@ -18,8 +18,8 @@ function onBtnMyLibraryCLick(e) {
 
 function onBtnWatchedCLick(e) {
     e.preventDefault();
-    const watchedArray = localStorage.getLocalStorage('watched');
-    console.log(localStorage.getLocalStorage('watched'));
+    const watchedArray = localStorage.getLocalStorage('watchedLibrary');
+    // console.log(localStorage.getLocalStorage('watchedLibrary'));
 
 
     const markup = cardMarkup(watchedArray);
@@ -29,11 +29,51 @@ function onBtnWatchedCLick(e) {
 
 function onBtnQueueCLick(e) {
     e.preventDefault();
-    const queueArray = localStorage.getLocalStorage('queue');
-    console.log(localStorage.getLocalStorage('queue'));
+    const queueArray = localStorage.getLocalStorage('queueLibrary');
+    // console.log(localStorage.getLocalStorage('queueLibrary'));
 
 
     const markup = cardMarkup(queueArray);
 
   cardContainer.innerHTML = markup;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// рабочий код
+// [].reduce((acc, item) => {
+//    acc.byId[item.id] = item;
+//    acc.allIds.push(item.id);
+//    return acc   
+// }, { byId: {}, allIds: [] })
+// {byId: {…}, allIds: Array(0)}
+
+// пример работы
+// [{ id:1, name: 'Vasya'}, {id:3, name: 'Petya'}].reduce((acc, item) => {
+//    acc.byId[item.id] = item;
+//    acc.allIds.push(item.id);
+//    return acc   
+// }, { byId: {}, allIds: [] })
+
+// пример создания normolize data объекта 
+// var normilizedObj = [{ id:1, name: 'Vasya'}, {id:3, name: 'Petya'}].reduce((acc, item) => {
+//    acc.byId[item.id] = item;
+//    acc.allIds.push(item.id);
+//    return acc   
+// }, { byId: {}, allIds: [] })

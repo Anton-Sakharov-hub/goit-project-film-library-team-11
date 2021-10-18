@@ -30,7 +30,7 @@ export default function homeRendering() {
       
       genresDataWork.addGenres(results);
       genresDataWork.changeDate(results);
-      requests.createMarkup(results);
+      createMarkup(results);
       
       LS.setLocalStorage('Query', results);
     })
