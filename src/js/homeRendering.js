@@ -25,6 +25,7 @@ export default function homeRendering() {
 }
 
 homePagePagination.on('afterMove', event => {
+  showPreloader();
   requests.page = event.page;
   requests
     .trendingFetch()
@@ -40,7 +41,8 @@ homePagePagination.on('afterMove', event => {
         behavior: 'smooth',
       });
     })
-    .catch(err => console.log(err));
+    .catch(err => console.log(err))
+    .finally(hidePreloader);
 });
 
 homeRendering();

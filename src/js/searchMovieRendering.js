@@ -57,6 +57,7 @@ const updateQuery = newQuery => {
 };
 
 searchMoviePagination.on('afterMove', e => {
+  showPreloader();
   requests.page = e.page;
   requests
     .movieFetch()
@@ -70,5 +71,6 @@ searchMoviePagination.on('afterMove', e => {
         behavior: 'smooth',
       });
     })
-    .catch(err => console.log(err));
+    .catch(err => console.log(err))
+    .finally(hidePreloader);
 });
