@@ -9,18 +9,19 @@ const { header, paginationHome, paginationSearch } = refs;
 const genresDataWork = new GenresDataWork();
 
 export default function homeRendering() {
+  showPreloader();
   requests
     .trendingFetch()
     .then(({ results, total_results }) => {
-      refs.preloader.classList.remove('done');
-      setTimeout(preloader, 500);
+      
       createMarkup(results);
       togleClass(paginationHome, paginationSearch, 'visually-hidden');
       homePagePagination.setTotalItems(total_results);
       homePagePagination.movePageTo(1);
       LS.setLocalStorage('Query', results);
     })
-    .catch(err => console.log(err));
+    .catch(err => console.log(err))
+    .finally(hidePreloader);
 }
 
 homePagePagination.on('afterMove', event => {
@@ -28,8 +29,8 @@ homePagePagination.on('afterMove', event => {
   requests
     .trendingFetch()
     .then(({ results }) => {
-      refs.preloader.classList.remove('done');
-      setTimeout(preloader, 500);
+      // refs.preloader.classList.remove('done');
+      // setTimeout(preloader, 500);
       genresDataWork.addGenres(results);
       genresDataWork.changeDate(results);
       createMarkup(results);
@@ -45,8 +46,10 @@ homePagePagination.on('afterMove', event => {
 homeRendering();
 
 //ф-ция для отображения загрузчика
-function preloader() {
-  if (!refs.preloader.classList.contains('done')) {
-    refs.preloader.classList.add('done');
-  }
+export function hidePreloader() {
+  refs.preloader.classList.add('hidden');
+}
+
+export function showPreloader() {
+  refs.preloader.classList.remove('hidden');
 }

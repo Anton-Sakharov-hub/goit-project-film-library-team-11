@@ -4,7 +4,7 @@ import LS from './local_storage.js';
 import { togleClass, createMarkup } from './commonFunction.js';
 import GenresDataWork from './GenresDataWork';
 import { searchMoviePagination } from './pagination-btns';
-import preloader from './homeRendering';
+import { hidePreloader, showPreloader } from './homeRendering';
 //импорт toastr notification
 import toastr from 'toastr';
 import 'toastr/build/toastr.css';
@@ -34,7 +34,7 @@ const genresDataWork = new GenresDataWork();
 formSearch.addEventListener('submit', onFormSearchsubmit);
 
 function onFormSearchsubmit(e) {
-  setTimeout(preloader, 500);
+  showPreloader();
   const input = e.currentTarget.elements.query;
   e.preventDefault();
   updateQuery(input.value);
@@ -49,7 +49,7 @@ function onFormSearchsubmit(e) {
       LS.setLocalStorage('Query', results);
     })
     .catch(err => console.log(err))
-    .finally(refs.preloader.classList.remove('done'));
+    .finally(hidePreloader);
 }
 
 const updateQuery = newQuery => {
