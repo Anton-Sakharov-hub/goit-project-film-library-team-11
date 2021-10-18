@@ -1,5 +1,6 @@
 .main-scn {
   min-height: 100vh;
+  margin-bottom: 60px;
 
   @include for-phone {
     width: 320px;

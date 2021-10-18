@@ -4,7 +4,7 @@ import LS from './local_storage.js';
 import { homePagePagination } from './pagination-btns';
 import { togleClass, createMarkup } from './commonFunction';
 import GenresDataWork from './GenresDataWork';
-const { paginationHome, paginationSearch } = refs;
+const { header, paginationHome, paginationSearch } = refs;
 
 const genresDataWork = new GenresDataWork();
 
@@ -33,6 +33,10 @@ homePagePagination.on('afterMove', event => {
       createMarkup(results);
       LS.setLocalStorage('Query', results);
       setTimeout(preloader, 200);
+      header.scrollIntoView({
+        block: 'start',
+        behavior: 'smooth',
+      });
     })
     .catch(err => console.log(err));
 });

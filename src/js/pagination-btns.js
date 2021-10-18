@@ -11,6 +11,12 @@ const options1 = {
   page: 1,
   centerAlign: true,
   usageStatistics: false,
+  firstItemClassName: 'tui-first-child1',
+  lastItemClassName: 'tui-last-child2',
+  template: {
+    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+    currentPage: '<strong class="tui-page-btn tui-is-selected acent">{{page}}</strong>',
+  },
 };
 
 const options2 = {
@@ -20,6 +26,12 @@ const options2 = {
   page: 1,
   centerAlign: true,
   usageStatistics: false,
+  firstItemClassName: 'tui-first-child1',
+  lastItemClassName: 'tui-last-child2',
+  template: {
+    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+    currentPage: '<strong class="tui-page-btn tui-is-selected acent">{{page}}</strong>',
+  },
 };
 
 const homePagePagination = new Pagination(paginationHome, options1);

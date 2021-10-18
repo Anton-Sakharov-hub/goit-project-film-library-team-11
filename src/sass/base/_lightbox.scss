@@ -12,8 +12,7 @@
   pointer-events: none;
 
   background-color: rgba(0, 0, 0, 0.8);
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 250ms $cubic, visibility 250ms $cubic;
 
   @media screen and (min-width: 768px) {
     // overflow-y: hidden;
@@ -38,10 +37,10 @@
   max-height: 100vh;
   padding: 40px 20px;
   padding-top: 48px;
-  background-color: #fff;
+  background-color: $primeryBgColor;
 
   transform: translate(-50%, -50%) scale(1);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 250ms $cubic;
 
   @media screen and (min-width: 768px) {
     display: flex;
@@ -63,7 +62,7 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
-  color: #000000;
+  color: $primeryTextColor;
 
   background-color: white;
 
@@ -81,7 +80,7 @@
 }
 
 .info-list {
-  color: #8c8c8c;
+  color: $modalText;
   //   margin-right: 40px;
 
   //   @media screen and (min-width: 1024px) {
@@ -98,12 +97,12 @@
 }
 
 .rating-mark {
-  background-color: #ff6b01;
+  background-color: $accentColor;
   border-radius: 5px;
   padding: 2px 14px;
 
   &__votes {
-    background-color: #f7f7f7;
+    background-color: $footerBgColor;
   }
 }
 
@@ -145,7 +144,7 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 1.15;
-  color: #000000;
+  color: $primeryTextColor;
 }
 
 .about {
@@ -172,7 +171,7 @@
   height: 48px;
   color: $primeryTextColor;
   background-color: $primeryBgColor;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms $cubic;
 
   &:hover,
   &:focus {
