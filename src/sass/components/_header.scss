@@ -86,7 +86,7 @@
   font-weight: 500;
   font-size: 30px;
   line-height: 0.89;
-  color: #fff;
+  color: $primeryBgColor;
 
   @include for-tablet {
     display: inline;
@@ -109,9 +109,9 @@
   &__input {
     background: transparent;
     border: none;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid $primeryBgColor;
     width: 280px;
-    color: #fff;
+    color: $primeryBgColor;
     @include for-tablet {
       width: 336px;
     }
