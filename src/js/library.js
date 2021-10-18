@@ -34,8 +34,8 @@ function onBtnWatchedCLick(e) {
   watchedQueueFlag = true;
   cardContainer.innerHTML = '';
   renewParam(3);
-    const watchedArray = localStorage.getLocalStorage('watchedLibrary');
-    console.log(localStorage.getLocalStorage('watchedLibrary'));
+    const watchedArray = localStorage.getLocalStorage('watchedLibrary') || [];
+    // console.log(localStorage.getLocalStorage('watchedLibrary'));
 
     // const markup = cardMarkup(watchedArray);
 
@@ -56,8 +56,8 @@ function onBtnQueueCLick(e) {
   renewParam(3);
   
 // console.log(renevParam(3));
-    const queueArray = localStorage.getLocalStorage('queueLibrary');
-    console.log(localStorage.getLocalStorage('queueLibrary'));
+    const queueArray = localStorage.getLocalStorage('queueLibrary') || [];
+    // console.log(localStorage.getLocalStorage('queueLibrary'));
 
   
 
@@ -73,7 +73,7 @@ function onBtnQueueCLick(e) {
 }
 
 const loadMoreWatched = function () {
-  const watchedLibrary = localStorage.getLocalStorage('watchedLibrary');
+  const watchedLibrary = localStorage.getLocalStorage('watchedLibrary') || [];
   console.log(watchedLibrary);
 
    let numberOfItems = 3;
@@ -88,7 +88,7 @@ const loadMoreWatched = function () {
 
 
 const loadMoreQueue = function () {
-  const queueLibrary = localStorage.getLocalStorage('queueLibrary');
+  const queueLibrary = localStorage.getLocalStorage('queueLibrary') || [];
   console.log(queueLibrary);
 
    let numberOfItems = 3;
