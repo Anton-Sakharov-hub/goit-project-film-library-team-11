@@ -32,6 +32,7 @@ function onBtnWatchedCLick(e) {
   btnQueue.classList.remove('button__current');
   btnWatched.classList.add('button__current');
   watchedQueueFlag = true;
+  changeContainerAtr('data-watched', 'data-queue', 'data-home');
   cardContainer.innerHTML = '';
   renewParam(3);
     const watchedArray = localStorage.getLocalStorage('watchedLibrary') || [];
@@ -52,6 +53,7 @@ function onBtnQueueCLick(e) {
   btnWatched.classList.remove('button__current');
   btnQueue.classList.add('button__current');
   watchedQueueFlag = false;
+  changeContainerAtr('data-queue', 'data-watched', 'data-home');
   cardContainer.innerHTML = '';
   renewParam(3);
   
@@ -130,9 +132,20 @@ function renewParam(num) {
 function onBtnHomeCLick(e) {
     e.preventDefault();
   sentinel.classList.add('display-none');
+  changeContainerAtr('data-home', 'data-watched', 'data-queue');
 }
 
 function onLogoCLick(e) {
     e.preventDefault();
   sentinel.classList.add('display-none');
+  changeContainerAtr('data-home', 'data-watched', 'data-queue');
+}
+
+function changeContainerAtr(setAtr, reAtr1, reAtr2) {
+  cardContainer.setAttribute(`${setAtr}`, '');
+  const hasOtherDataAtr = cardContainer.hasAttribute(`${reAtr1}`) || cardContainer.hasAttribute(`${reAtr2}`);
+  if (hasOtherDataAtr) {
+    cardContainer.removeAttribute(`${reAtr1}`);
+    cardContainer.removeAttribute(`${reAtr2}`);
+  };
 }

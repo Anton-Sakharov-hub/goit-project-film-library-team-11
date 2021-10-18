@@ -83,7 +83,6 @@ function findFilm(filmId, filmsArray) {
 function addToWatchedHandler(e) {
   const btnsRefs = addModalBtnsRefs();
   watchedFilms = getLocalStorage('watchedLibrary') || [];
-  // const filmId = Number(e.target.dataset.id);
   const checkedFilmInWatched = watchedFilms.find(el => el.id === filmId);
   
 
@@ -96,40 +95,37 @@ function addToWatchedHandler(e) {
     // elToDelete.remove();
     // const markup = cardTemplate(watchedFilms);
     // lightboxContainer.innerHTML = markup;
+    makeMarkupByAtr('watched', watchedFilms);
   } else {
-    console.log(modalFilm);
     // cardsContainer.insertAdjacentHTML('beforeend', cardMarkup(modalFilm))
     watchedFilms = [...watchedFilms, modalFilm];
     setLocalStorage('watchedLibrary', watchedFilms);
-    cardsContainer.innerHTML = cardsTemplate(watchedFilms);
+    // cardsContainer.innerHTML = cardsTemplate(watchedFilms);
     btnsRefs.watchedBtn.textContent = 'REMOVE FROM WATCHED';
-    // const markup = cardTemplate(watchedFilms);
-    // lightboxContainer.innerHTML = markup;
+    makeMarkupByAtr('watched', watchedFilms);
+
   };
 };
 
 function addToQueueHandler(e) {
   const btnsRefs = addModalBtnsRefs();
   queueFilms = getLocalStorage('queueLibrary') || [];
-  // const filmId = Number(e.target.dataset.id);
   const checkedFilmInQueue = queueFilms.find(el => el.id === filmId);
   
   if (checkedFilmInQueue) {
     queueFilms = [...queueFilms.filter(el => el.id !== filmId)];
     setLocalStorage('queueLibrary', queueFilms);
     btnsRefs.queueBtn.textContent = 'ADD TO QUEUE';
-    const elToDelete = document.querySelector(`[data-id="${filmId}"]`);
-    elToDelete.remove();
-    // const markup = lightboxTpl(queueFilms);
-    // lightboxContainer.innerHTML = markup;
+    makeMarkupByAtr('queue', queueFilms);
+    // const elToDelete = document.querySelector(`[data-id="${filmId}"]`);
+    // elToDelete.remove();
+    
   } else {
-    console.log(modalFilm);
-    cardsContainer.insertAdjacentHTML('beforeend', cardMarkup(modalFilm))
+    // cardsContainer.insertAdjacentHTML('beforeend', cardMarkup(modalFilm))
     queueFilms = [...queueFilms, modalFilm];
     setLocalStorage('queueLibrary', queueFilms);
+    makeMarkupByAtr('queue', queueFilms);
     btnsRefs.queueBtn.textContent = 'REMOVE FROM QUEUE';
-    // const markup = lightboxTpl(queueFilms);
-    // lightboxContainer.innerHTML = markup;
   };
 };
 
@@ -149,3 +145,8 @@ function restLocalStorage() {
   return filmArr;
 }
 
+function makeMarkupByAtr(containerAtr, filmsData) {
+  const container = document.querySelector(`[data-${containerAtr}]`);
+
+  container.innerHTML = cardsTemplate(filmsData);
+};
