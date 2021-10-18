@@ -17,12 +17,14 @@ export default function homeRendering() {
       homePagePagination.setTotalItems(total_results);
       homePagePagination.movePageTo(1);
       LS.setLocalStorage('Query', results);
+      refs.preloader.classList.remove('done');
+      setTimeout(preloader, 200);
     })
     .catch(err => console.log(err));
 }
 
-homePagePagination.on('afterMove', e => {
-  requests.page = e.page;
+homePagePagination.on('afterMove', event => {
+  requests.page = event.page;
   requests
     .trendingFetch()
     .then(({ results }) => {
@@ -30,6 +32,7 @@ homePagePagination.on('afterMove', e => {
       genresDataWork.changeDate(results);
       createMarkup(results);
       LS.setLocalStorage('Query', results);
+      setTimeout(preloader, 200);
       header.scrollIntoView({
         block: 'start',
         behavior: 'smooth',
@@ -39,3 +42,10 @@ homePagePagination.on('afterMove', e => {
 });
 
 homeRendering();
+
+//ф-ция для отображения загрузчика
+function preloader() {
+  if (!refs.preloader.classList.contains('done')) {
+    refs.preloader.classList.add('done');
+  }
+}

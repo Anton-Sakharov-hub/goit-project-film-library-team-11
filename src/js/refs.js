@@ -7,6 +7,8 @@ export default {
   btnSubmit: document.querySelector('.btn-submit-js'),
   formSearch: document.querySelector('.form-js'),
   navLibrary: document.querySelector('.nav-library-js'),
+  //----------preloader-------------
+  preloader: document.querySelector('.preloader'),
   // ----------mainScn-------------
   // mainScn: document.querySelector('.main-scn'),
   // -------- footer --------------
@@ -26,4 +28,3 @@ export default {
   paginationHome: document.getElementById('pagination1'),
   paginationSearch: document.getElementById('pagination2'),
 };
-
