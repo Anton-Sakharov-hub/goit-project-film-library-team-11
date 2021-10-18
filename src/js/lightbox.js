@@ -35,7 +35,6 @@ function onCardsContainerClick(e) {
   modalFilm =  {...dataFilm,
     isWatched: !!(getLocalStorage('watchedLibrary') || []).find(el => el.id === filmId), isQueue: Boolean((getLocalStorage('queueLibrary') || []).find(el => el.id === filmId)),
   };
-  console.log(modalFilm);
 
   const markup = lightboxTpl(modalFilm);
 
@@ -89,20 +88,13 @@ function addToWatchedHandler(e) {
   if (checkedFilmInWatched) {
     watchedFilms = watchedFilms.filter(el => el.id !== filmId);
     setLocalStorage('watchedLibrary', watchedFilms);
-    btnsRefs.watchedBtn.textContent = 'ADD TO WATCHED';
-    cardsContainer.innerHTML = cardsTemplate(watchedFilms);
-    // const elToDelete = document.querySelector(`[data-id="${filmId}"]`);
-    // elToDelete.remove();
-    // const markup = cardTemplate(watchedFilms);
-    // lightboxContainer.innerHTML = markup;
     makeMarkupByAtr('watched', watchedFilms);
+    btnsRefs.watchedBtn.textContent = 'ADD TO WATCHED'
   } else {
-    // cardsContainer.insertAdjacentHTML('beforeend', cardMarkup(modalFilm))
     watchedFilms = [...watchedFilms, modalFilm];
     setLocalStorage('watchedLibrary', watchedFilms);
-    // cardsContainer.innerHTML = cardsTemplate(watchedFilms);
-    btnsRefs.watchedBtn.textContent = 'REMOVE FROM WATCHED';
     makeMarkupByAtr('watched', watchedFilms);
+    btnsRefs.watchedBtn.textContent = 'REMOVE FROM WATCHED';
 
   };
 };
@@ -115,13 +107,9 @@ function addToQueueHandler(e) {
   if (checkedFilmInQueue) {
     queueFilms = [...queueFilms.filter(el => el.id !== filmId)];
     setLocalStorage('queueLibrary', queueFilms);
-    btnsRefs.queueBtn.textContent = 'ADD TO QUEUE';
     makeMarkupByAtr('queue', queueFilms);
-    // const elToDelete = document.querySelector(`[data-id="${filmId}"]`);
-    // elToDelete.remove();
-    
+    btnsRefs.queueBtn.textContent = 'ADD TO QUEUE';
   } else {
-    // cardsContainer.insertAdjacentHTML('beforeend', cardMarkup(modalFilm))
     queueFilms = [...queueFilms, modalFilm];
     setLocalStorage('queueLibrary', queueFilms);
     makeMarkupByAtr('queue', queueFilms);
@@ -148,5 +136,7 @@ function restLocalStorage() {
 function makeMarkupByAtr(containerAtr, filmsData) {
   const container = document.querySelector(`[data-${containerAtr}]`);
 
-  container.innerHTML = cardsTemplate(filmsData);
+  if (container) {
+    container.innerHTML = cardsTemplate(filmsData);
+  };
 };
