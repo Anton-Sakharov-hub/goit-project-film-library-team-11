@@ -1,0 +1,29 @@
+{{#each this}}
+    <li class="card__list-item" data-id="{{id}}">
+        
+        {{#if poster_path}}
+        <img class="card__poster" src="https://image.tmdb.org/t/p/w300/{{poster_path}}"
+            loading="lazy" alt="{{title}} poster" title="{{title}}" data-id="{{id}}" />
+        {{else}}
+        <img class="card__poster" src="https://w.zhinka.tv/templates/Default/dleimages/no_image.jpg"
+            loading="lazy" alt="{{title}} poster" title="{{title}}" data-id="{{id}}" />
+        {{/if}}
+        {{#if title}}
+        <p class="card__name">{{title}}</p>
+        {{else}}
+        <p class="card__name">{{name}}</p>
+        {{/if}}
+        <p class="card__text">
+            <span class="genresSpan">{{genre_ids}}</span> |
+                   {{!-- {{#each genre_ids}}
+            <span class='card__item'>{{this}}</span>
+            {{/each}}  --}}
+            {{#if release_date}}
+            <span>{{release_date}}</span>
+            {{else}}
+            <span>{{first_air_date}}</span>
+            {{/if}}
+            <span class="card__vote_average">{{vote_average}}</span>
+        </p>
+    </li>
+{{/each}}

@@ -1,0 +1,88 @@
+.button {
+  padding: 0;
+
+  cursor: pointer;
+  color: $secondaryTextColor;
+  background-color: transparent;
+  border: none;
+
+  &__home {
+    position: relative;
+    @include font-styles($line-height: 1.16);
+  }
+
+  &__myLibrary {
+    position: relative;
+    margin-left: 40px;
+    @include font-styles($line-height: 1.16);
+  }
+
+  &__submit {
+    position: absolute;
+    left: 265px;
+
+    @include for-tablet {
+      left: 320px;
+    }
+  }
+
+  &__watched {
+    margin-right: 14px;
+  }
+
+  &__main {
+    width: 130px;
+    height: 44px;
+    @include font-styles();
+    border-radius: 5px;
+    border: 1px solid $secondaryTextColor;
+    transition: background-color 250ms $cubic, color 250ms $cubic, box-shadow 250ms $cubic;
+
+    @include for-tablet {
+      width: 136px;
+    }
+    &:hover,
+    &:focus {
+      background-color: $accentColor;
+      border: transparent;
+      box-shadow: $shadow;
+    }
+  }
+
+  &__current {
+    color: $secondaryTextColor;
+    border: transparent;
+    background-color: $accentColor;
+    box-shadow: $shadow;
+  }
+
+  &__modal {
+    width: 112px;
+    color: $primeryTextColor;
+
+    height: 44px;
+    @include font-styles();
+    border-radius: 5px;
+
+    border: 1px solid $primeryTextColor;
+    transition: background-color 250ms $cubic, color 250ms $cubic, box-shadow 250ms $cubic;
+
+    &:not(:last-child) {
+      margin-right: 14px;
+    }
+
+    &:hover,
+    &:focus {
+      color: $secondaryTextColor;
+      background-color: $accentColor;
+      box-shadow: $shadow;
+      border: transparent;
+    }
+    @include for-tablet {
+      width: 125px;
+    }
+    @include for-desktop {
+      width: 136px;
+    }
+  }
+}

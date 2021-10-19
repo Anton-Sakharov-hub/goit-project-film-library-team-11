@@ -1,0 +1,51 @@
+// ---------------- mixin для стилей текста --------------
+
+@mixin font-styles(
+  // значение по умолчанию
+  $font-weight: 500,
+  $font-size: 12px,
+  $line-height: 1.33
+) {
+  font-weight: $font-weight;
+  font-size: $font-size;
+  line-height: $line-height;
+}
+
+// использование
+
+// .text-container {
+// @include font-styles(400, 16px, 20px); значение, которые не указали идут по умолчанию
+// }
+
+// если хотите поменять только одно значение, третьего параметра line-height, то нужно использовать так font-styles($line-height: 16px)
+// если нужно первый параметр, то просто font-styles(500), все остальные пойдут по умолчанию
+
+// ----------------- media mixin -------------------------
+
+@mixin for-phone {
+  @media (max-width: $mobileBreakpoint) {
+    @content;
+  }
+}
+
+@mixin for-tablet {
+  @media (min-width: $tabletBreakpoint) {
+    @content;
+  }
+}
+
+@mixin for-desktop {
+  @media (min-width: $desktopBreakpoint) {
+    @content;
+  }
+}
+
+// использование
+
+// .by-box {
+//     padding: 10px;
+
+//     @include for-desktop {
+//         padding: 20px;
+//     }
+// }

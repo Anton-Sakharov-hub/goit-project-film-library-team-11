@@ -1,0 +1,60 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  @extend %marginCenters;
+
+  background-color: $footerBgColor;
+}
+
+.copyrightsCntr {
+  @include for-phone {
+    width: $mobileContainer;
+  }
+}
+
+.copyrightsText {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  padding: 30px 0;
+  margin: 0;
+  @include font-styles(400, 16px, 1.19);
+
+  color: $footerTextColor;
+}
+
+.mobileCntr {
+  margin-right: 3px;
+
+  @include for-phone {
+    margin-bottom: 10px;
+  }
+}
+
+.icon-like {
+  margin: 0 10px;
+  align-self: center;
+
+  fill: $accentColor;
+}
+
+.footer__btn {
+  cursor: pointer;
+}
+
+.GoIT-link {
+  border-bottom: 1px solid $footerTextColor;
+
+  transition: color 250ms $cubic, border-bottom 250ms $cubic;
+
+  &:hover,
+  &:focus {
+    color: $accentColor;
+    border-bottom: 1px solid $accentColor;
+  }
+}

@@ -1,0 +1,190 @@
+.lightbox {
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: scroll;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  pointer-events: none;
+
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: opacity 250ms $cubic, visibility 250ms $cubic;
+
+  @media screen and (min-width: 768px) {
+    // overflow-y: hidden;
+  }
+}
+
+.lightbox.is-open {
+  opacity: 1;
+  pointer-events: initial;
+}
+
+.lightbox-wrap {
+}
+
+.lightbox__container {
+  width: 280px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow-y: scroll;
+  max-height: 100vh;
+  padding: 40px 20px;
+  padding-top: 48px;
+  background-color: $primeryBgColor;
+
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms $cubic;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    width: 618px;
+    max-height: 100vh;
+    padding-top: 42px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 882px;
+    min-height: 618px;
+    padding-top: 50px;
+    overflow-y: hidden;
+  }
+}
+
+.lightbox__content {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  color: $primeryTextColor;
+
+  background-color: white;
+
+  @media screen and (min-width: 768px) {
+    line-height: 1.67;
+  }
+
+  @media screen and (min-width: 1024px) {
+    // width: 882px;
+  }
+}
+
+.info {
+  display: flex;
+}
+
+.info-list {
+  color: $modalText;
+  //   margin-right: 40px;
+
+  //   @media screen and (min-width: 1024px) {
+  //     margin-right: 84px;
+  //   }
+}
+
+.info-data {
+  margin-left: 40px;
+
+  @media screen and (min-width: 1024px) {
+    margin-left: 84px;
+  }
+}
+
+.rating-mark {
+  background-color: $accentColor;
+  border-radius: 5px;
+  padding: 2px 14px;
+
+  &__votes {
+    background-color: $footerBgColor;
+  }
+}
+
+.lightbox.is-open .lightbox__conteiner {
+  transform: scale(1);
+}
+
+.poster {
+  margin-right: 30px;
+
+  max-height: 100%;
+  max-width: 100%;
+
+  @media screen and (min-width: 768px) {
+    max-width: 264px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    max-width: 396px;
+  }
+}
+
+.lightbox__image {
+  object-fit: contain;
+  min-height: 300px;
+
+  @media screen and (min-width: 768px) {
+    height: 100%;
+    min-width: 264px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    height: 100%;
+    width: 478px;
+  }
+}
+
+.lightbox__name {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.15;
+  color: $primeryTextColor;
+}
+
+.about {
+  max-width: 262px;
+
+  @media screen and (min-width: 1024px) {
+    max-width: 396px;
+  }
+}
+
+.lightbox__buttons {
+  display: flex;
+}
+
+.close {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: transparent;
+  top: 2px;
+  right: 2px;
+  width: 48px;
+  height: 48px;
+  color: $primeryTextColor;
+  background-color: $primeryBgColor;
+  transition: color 250ms $cubic;
+
+  &:hover,
+  &:focus {
+    color: $accentColor;
+    cursor: pointer;
+  }
+
+  &__cross {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    fill: #000000;
+    // fill: black;
+    // color: black;
+  }
+}

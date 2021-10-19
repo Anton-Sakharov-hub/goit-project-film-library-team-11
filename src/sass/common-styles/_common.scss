@@ -1,0 +1,57 @@
+body {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 108px;
+  font-family: $primeryFont;
+  color: $primeryTextColor;
+  background-color: $primeryBgColor;
+
+  @include for-tablet {
+    padding-bottom: 79px;
+  }
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  @extend %listReset;
+}
+
+a {
+  text-decoration: none;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
+.display-none {
+  display: none;
+}
+
+.container {
+  // $mobileContainer: 320px;
+  // $tabletContainer: 768px;
+  // $desktopContainer: 1024px;
+
+  @extend %marginCenters;
+
+  @include for-tablet {
+    width: $tabletContainer;
+  }
+
+  @include for-desktop {
+    width: $desktopContainer;
+  }
+}

@@ -1,0 +1,31 @@
+%listReset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+%visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+%marginCenters {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// как использовать
+
+//  .container {
+//   @extend %marginCenters;
+// }
+
+// ul {
+//   @extend %listReset;
+// }
