@@ -1,23 +1,11 @@
 
 <div class="lightbox__container ">
-
-    <button class="close" data-modal-close>
-      {{!-- <img
-        src="./images/close.svg"
-        alt="{{alt}}"
-        class="close__cross"
-        data-action="close-lightbox"
-      /> --}}
-        {{!-- <svg class="close__cross">
-            <use href="./images/sprite.svg#icon-close-modal"></use>
-        </svg> --}}
-    </button>
     <div class="poster">
             {{#if poster_path}}
-        <img class="card__poster" src="https://image.tmdb.org/t/p/w300{{poster_path}}" loading="lazy" alt="{{title}} poster"
+        <img class="lightbox__image" src="https://image.tmdb.org/t/p/w300{{poster_path}}" loading="lazy" alt="{{title}} poster"
             title="{{title}}" data-id="{{id}}" />
         {{else}}
-        <img class="card__poster" src="https://w.zhinka.tv/templates/Default/dleimages/no_image.jpg" loading="lazy"
+        <img class="lightbox__image" src="https://w.zhinka.tv/templates/Default/dleimages/no_image.jpg" loading="lazy"
             alt="{{title}} poster" title="{{title}}" data-id="{{id}}" />
         {{/if}}
     </div>

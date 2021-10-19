@@ -2,7 +2,7 @@ import lightboxTpl from '../templates/lightbox.hbs';
 import localStorage from '../js/local_storage';
 import refs from '../js/refs.js';
 
-const { cardsContainer, lightboxContainer, backdrop, } = refs;
+const { cardsContainer, lightboxContainer, backdrop, closeBtn, } = refs;
 
 let modalFilm = {};
 
@@ -17,6 +17,7 @@ function onCardsContainerClick(e) {
   }
 
   lightboxContainer.classList.add('is-open');
+  backdrop.classList.remove('visually-hidden');
   const filmId = Number(e.target.dataset.id);
 
   const filmsArray = localStorage.getLocalStorage('Query'); // это массив фильмов с local storage
@@ -36,13 +37,14 @@ function onCardsContainerClick(e) {
   btnsRefs.watchedBtn.addEventListener('click', addToWatchedHandler);
   btnsRefs.queueBtn.addEventListener('click', addToQueueHandler);
   window.addEventListener('keydown', onEscKeyPress, { once: true });
-  // closeBtn.addEventListener('click', onCloseLightbox, { once: true });
+  closeBtn.addEventListener('click', onCloseLightbox, { once: true });
 }
 
 function onCloseLightbox(e) {
   const btnsRefs = addModalBtnsRefs();
 
   lightboxContainer.classList.remove('is-open');
+  backdrop.classList.add('visually-hidden');
   btnsRefs.watchedBtn.removeEventListener('click', addToWatchedHandler);
   btnsRefs.queueBtn.removeEventListener('click', addToQueueHandler);
 

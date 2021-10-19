@@ -1,12 +1,16 @@
-<div class="lightbox js-lightbox lightbox__overlay">
-  <!-- <div>
-    <button class="close" data-modal-close>
+<div class="backdrop visually-hidden">
+  <div class="wrap">
+    <button type="button" class="close" data-modal-close>
       <img
-        src="./images/close.svg"
+        src="./images/cross.png"
         alt="{{alt}}"
         class="close__cross"
         data-action="close-lightbox"
       />
     </button>
-  </div> -->
+
+    <div class="lightbox js-lightbox is-open lightbox__container">
+      <button type="button" class="close" data-modal-close></button>
+    </div>
+  </div>
 </div>
