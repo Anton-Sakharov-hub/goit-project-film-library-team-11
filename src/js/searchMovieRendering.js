@@ -35,6 +35,7 @@ formSearch.addEventListener('submit', onFormSearchsubmit);
 
 function onFormSearchsubmit(e) {
   showPreloader();
+  requests.page = 1;
   const input = e.currentTarget.elements.query;
   e.preventDefault();
   updateQuery(input.value);
@@ -42,7 +43,6 @@ function onFormSearchsubmit(e) {
     .movieFetch()
     .then(({ results, total_results }) => {
       createMarkup(results);
-
       togleClass(paginationSearch, paginationHome, 'visually-hidden');
       searchMoviePagination.setTotalItems(total_results);
       searchMoviePagination.movePageTo(1);
