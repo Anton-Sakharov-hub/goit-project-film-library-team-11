@@ -13,7 +13,6 @@ export default function homeRendering() {
   requests
     .trendingFetch()
     .then(({ results, total_results }) => {
-      
       createMarkup(results);
       togleClass(paginationHome, paginationSearch, 'visually-hidden');
       homePagePagination.setTotalItems(total_results);
@@ -30,8 +29,6 @@ homePagePagination.on('afterMove', event => {
   requests
     .trendingFetch()
     .then(({ results }) => {
-      // refs.preloader.classList.remove('done');
-      // setTimeout(preloader, 500);
       genresDataWork.addGenres(results);
       genresDataWork.changeDate(results);
       createMarkup(results);
