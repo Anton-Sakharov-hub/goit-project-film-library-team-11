@@ -34,27 +34,30 @@ const genresDataWork = new GenresDataWork();
 formSearch.addEventListener('submit', onFormSearchsubmit);
 
 function onFormSearchsubmit(e) {
-  showPreloader();
+  requests.page = 1;
   const input = e.currentTarget.elements.query;
   e.preventDefault();
-  updateQuery(input.value);
-  requests
-    .movieFetch()
-    .then(({ results, total_results }) => {
-      createMarkup(results);
-
-      togleClass(paginationSearch, paginationHome, 'visually-hidden');
-      searchMoviePagination.setTotalItems(total_results);
-      searchMoviePagination.movePageTo(1);
-      LS.setLocalStorage('Query', results);
-    })
-    .catch(err => console.log(err))
-    .finally(hidePreloader);
+  if (input.value !== '') {
+    updateQuery(input.value);
+    showPreloader();
+    requests
+      .movieFetch()
+      .then(({ results, total_results }) => {
+        createMarkup(results);
+        togleClass(paginationSearch, paginationHome, 'visually-hidden');
+        searchMoviePagination.setTotalItems(total_results);
+        searchMoviePagination.movePageTo(1);
+        LS.setLocalStorage('Query', results);
+      })
+      .catch(err => console.log(err))
+      .finally(hidePreloader);
+  }
+  return;
 }
 
-const updateQuery = newQuery => {
+function updateQuery(newQuery) {
   requests.query = newQuery;
-};
+}
 
 searchMoviePagination.on('afterMove', e => {
   showPreloader();
