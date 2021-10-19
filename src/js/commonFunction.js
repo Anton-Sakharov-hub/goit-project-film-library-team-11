@@ -11,7 +11,7 @@ function createMarkup(films) {
   cardContainer.innerHTML = cardsTemplate(films);
 }
 
-function clearInput() {
+ function clearInput() {
   const input = formSearch.elements.query;
   input.value = '';
 }

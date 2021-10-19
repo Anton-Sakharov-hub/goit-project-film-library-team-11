@@ -1,7 +1,7 @@
 import requests from './requests.js';
 import refs from './refs.js';
 import LS from './local_storage.js';
-import { togleClass, createMarkup } from './commonFunction.js';
+import { togleClass, createMarkup, clearInput } from './commonFunction.js';
 import GenresDataWork from './GenresDataWork';
 import { searchMoviePagination } from './pagination-btns';
 
@@ -37,16 +37,27 @@ function onFormSearchsubmit(e) {
   const input = e.currentTarget.elements.query;
   e.preventDefault();
   updateQuery(input.value);
+
+  if (input.value.trim() == '') {
+    toastr.warning('Пожалуйста, введите ваш запроc');
+    clearInput(input);
+  }
   requests
     .movieFetch()
     .then(({ results, total_results }) => {
+      if (results.length < 1) {
+        clearInput(input);
+        toastr.error('Фильм не найден! Измените ввод и повторите попытку');
+        apiServise.query = '';
+      }
       createMarkup(results);
+      clearInput(input);
       togleClass(paginationSearch, paginationHome, 'visually-hidden');
       searchMoviePagination.setTotalItems(total_results);
       searchMoviePagination.movePageTo(1);
       LS.setLocalStorage('Query', results);
     })
-    .catch(toastr.warning('Пожалуйста, введите ваш запроc'));
+    .catch(err => console.log(err));
 }
 
 const updateQuery = newQuery => {
