@@ -19,6 +19,8 @@ export default {
   cardsContainer: document.querySelector('.card__list'),
   lightboxContainer: document.querySelector('.js-lightbox'),
   backdrop: document.querySelector('.lightbox__overlay'),
+  // watchedBtn: document.querySelector('.js-watched'),
+  // queueBtn: document.querySelector('.js-queue'),
   // closeBtn: document.querySelector('[data-action="close-lightbox"]'),
   // ---------- library --------------
   btnWatched: document.querySelector('.btn-watched-js'),
