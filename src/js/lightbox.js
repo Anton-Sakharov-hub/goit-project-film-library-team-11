@@ -3,9 +3,8 @@ import cardsTemplate from '../templates/cardsTemplate.hbs';
 import localStorage from '../js/local_storage';
 import refs from '../js/refs.js';
 
-const { cardsContainer, lightboxContainer, backdrop, closeBtn, } = refs;
+const { cardsContainer, lightboxContainer, backdrop, closeBtn} = refs;
 const { getLocalStorage, setLocalStorage } = localStorage
-
 
 let modalFilm = {};
 let watchedFilms = [];
@@ -19,14 +18,16 @@ backdrop.addEventListener('click', onBackdropClick);
 
 function onCardsContainerClick(e) {
   e.preventDefault();
-
+  // debugger;
+  
   if (e.target.nodeName !== 'IMG') {
     return;
   }
 
   lightboxContainer.classList.add('is-open');
   backdrop.classList.remove('visually-hidden');
-
+  console.log(backdrop);
+  console.log("отработал");
   filmId = Number(e.target.dataset.id);
 
   const localStorageFilms = restLocalStorage(); // это массив фильмов с local storage
@@ -48,7 +49,7 @@ function onCardsContainerClick(e) {
   btnsRefs.watchedBtn.addEventListener('click', addToWatchedHandler);
   btnsRefs.queueBtn.addEventListener('click', addToQueueHandler);
   window.addEventListener('keydown', onEscKeyPress, { once: true });
-  closeBtn.addEventListener('click', onCloseLightbox, { once: true });
+  // closeBtn.addEventListener('click', onCloseLightbox, { once: true });
 }
 
 function onCloseLightbox(e) {
