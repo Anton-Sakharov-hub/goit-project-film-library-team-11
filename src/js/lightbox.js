@@ -18,7 +18,6 @@ backdrop.addEventListener('click', onBackdropClick);
 
 function onCardsContainerClick(e) {
   e.preventDefault();
-  // debugger;
   
   if (e.target.nodeName !== 'IMG') {
     return;
@@ -26,8 +25,6 @@ function onCardsContainerClick(e) {
 
   lightboxContainer.classList.add('is-open');
   backdrop.classList.remove('visually-hidden');
-  console.log(backdrop);
-  console.log("отработал");
   filmId = Number(e.target.dataset.id);
 
   const localStorageFilms = restLocalStorage(); // это массив фильмов с local storage

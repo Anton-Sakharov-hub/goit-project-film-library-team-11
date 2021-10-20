@@ -16,4 +16,14 @@ function createMarkup(films) {
   input.value = '';
 }
 
-export { togleClass, createMarkup, clearInput };
+
+//ф-ция для отображения загрузчика
+function hidePreloader() {
+  refs.preloader.classList.add('hidden');
+}
+
+function showPreloader() {
+  refs.preloader.classList.remove('hidden');
+}
+
+export { togleClass, createMarkup, clearInput, hidePreloader, showPreloader };
