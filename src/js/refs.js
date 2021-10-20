@@ -28,4 +28,5 @@ export default {
   // --------------pagination--------------
   paginationHome: document.getElementById('pagination1'),
   paginationSearch: document.getElementById('pagination2'),
+  buttonScrollToUp: document.querySelector('#btn-scroll-up'),
 };

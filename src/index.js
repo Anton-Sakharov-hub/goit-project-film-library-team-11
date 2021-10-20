@@ -7,4 +7,5 @@ import './js/local_storage';
 import './js/library';
 import './js/GenresDataWork';
 import './js/searchMovieRendering'
+import './js/button-scroll'
 
