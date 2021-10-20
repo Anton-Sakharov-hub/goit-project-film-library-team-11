@@ -10,7 +10,7 @@
 .card__list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: start;
+  justify-content: center;
 
   @extend %marginCenters;
   padding: 10px 0 30px;
