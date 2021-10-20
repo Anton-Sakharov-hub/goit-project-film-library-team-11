@@ -156,6 +156,16 @@
   display: flex;
 }
 
+.icon-close {
+  stroke: $primeryTextColor;
+  transition: stroke 250ms $cubic;
+
+  &:hover,
+  &:focus {
+    stroke: $accentColor;
+  }
+}
+
 .close {
   position: absolute;
   display: flex;
@@ -179,15 +189,5 @@
   &__cross {
     display: flex;
     color: $primeryTextColor;
-  }
-}
-
-.icon-close {
-  stroke: $primeryTextColor;
-  transition: stroke 250ms $cubic;
-
-  &:hover,
-  &:focus {
-    stroke: $accentColor;
   }
 }
