@@ -45,8 +45,9 @@ function onCardsContainerClick(e) {
   // const div = document.querySelector('.lightbox__buttons');
   btnsRefs.watchedBtn.addEventListener('click', addToWatchedHandler);
   btnsRefs.queueBtn.addEventListener('click', addToQueueHandler);
-  window.addEventListener('keydown', onEscKeyPress, { once: true });
   closeBtn.addEventListener('click', onCloseLightbox, { once: true });
+  window.addEventListener('keydown', onEscKeyPress, { once: true });
+
 }
 
 function onCloseLightbox(e) {
