@@ -1,10 +1,12 @@
 .button {
   padding: 0;
-
   cursor: pointer;
   color: $secondaryTextColor;
   background-color: transparent;
   border: none;
+  &:focus {
+    outline-color: $accentColor;
+  }
 
   &__home {
     position: relative;
@@ -20,6 +22,12 @@
   &__submit {
     position: absolute;
     left: 265px;
+    &:focus .svg {
+      stroke: $accentColor;
+    }
+    &:hover .svg {
+      stroke: $accentColor;
+    }
 
     @include for-tablet {
       left: 320px;
