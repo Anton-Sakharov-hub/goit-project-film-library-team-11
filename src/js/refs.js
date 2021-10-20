@@ -18,7 +18,7 @@ export default {
   // --------- lightbox ------------
   cardsContainer: document.querySelector('.card__list'),
   lightboxContainer: document.querySelector('.js-lightbox'),
-  backdrop: document.querySelector('.backdrop'),
+  backdrop: document.querySelector('.js-backdrop'),
   closeBtn: document.querySelector('[data-action="close-lightbox"]'),
   // ---------- library --------------
   btnWatched: document.querySelector('.btn-watched-js'),
