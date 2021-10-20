@@ -181,3 +181,13 @@
     color: $primeryTextColor;
   }
 }
+
+.icon-close {
+  stroke: $primeryTextColor;
+  transition: stroke 250ms $cubic;
+
+  &:hover,
+  &:focus {
+    stroke: $accentColor;
+  }
+}
