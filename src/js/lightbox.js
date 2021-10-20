@@ -3,8 +3,9 @@ import cardsTemplate from '../templates/cardsTemplate.hbs';
 import localStorage from '../js/local_storage';
 import refs from '../js/refs.js';
 
-const { cardsContainer, lightboxContainer, backdrop, } = refs;
+const { cardsContainer, lightboxContainer, backdrop, closeBtn, } = refs;
 const { getLocalStorage, setLocalStorage } = localStorage
+
 
 let modalFilm = {};
 let watchedFilms = [];
@@ -24,6 +25,8 @@ function onCardsContainerClick(e) {
   }
 
   lightboxContainer.classList.add('is-open');
+  backdrop.classList.remove('visually-hidden');
+
   filmId = Number(e.target.dataset.id);
 
   const localStorageFilms = restLocalStorage(); // это массив фильмов с local storage
@@ -45,13 +48,14 @@ function onCardsContainerClick(e) {
   btnsRefs.watchedBtn.addEventListener('click', addToWatchedHandler);
   btnsRefs.queueBtn.addEventListener('click', addToQueueHandler);
   window.addEventListener('keydown', onEscKeyPress, { once: true });
-  // closeBtn.addEventListener('click', onCloseLightbox, { once: true });
+  closeBtn.addEventListener('click', onCloseLightbox, { once: true });
 }
 
 function onCloseLightbox(e) {
   const btnsRefs = addModalBtnsRefs();
 
   lightboxContainer.classList.remove('is-open');
+  backdrop.classList.add('visually-hidden');
   btnsRefs.watchedBtn.removeEventListener('click', addToWatchedHandler);
   btnsRefs.queueBtn.removeEventListener('click', addToQueueHandler);
 
