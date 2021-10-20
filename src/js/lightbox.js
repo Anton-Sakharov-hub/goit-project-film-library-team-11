@@ -1,6 +1,4 @@
 import lightboxTpl from '../templates/lightbox.hbs';
-// import cardTemplate from '../template/cardMarkup.hbs';
-import cardMarkup from '../templates/cardMarkup.hbs';
 import cardsTemplate from '../templates/cardsTemplate.hbs';
 import localStorage from '../js/local_storage';
 import refs from '../js/refs.js';
