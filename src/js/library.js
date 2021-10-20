@@ -1,5 +1,5 @@
 import refs from '../js/refs.js';
-import cardMarkup from '../template/cardMarkup.hbs';
+import cardMarkup from '../templates/cardsTemplate.hbs';
 import localStorage from '../js/local_storage';
 
 
@@ -32,6 +32,7 @@ function onBtnWatchedCLick(e) {
   btnQueue.classList.remove('button__current');
   btnWatched.classList.add('button__current');
   watchedQueueFlag = true;
+  changeContainerAtr('data-watched', 'data-queue', 'data-home');
   cardContainer.innerHTML = '';
   renewParam(3);
     const watchedArray = localStorage.getLocalStorage('watchedLibrary') || [];
@@ -52,13 +53,12 @@ function onBtnQueueCLick(e) {
   btnWatched.classList.remove('button__current');
   btnQueue.classList.add('button__current');
   watchedQueueFlag = false;
+  changeContainerAtr('data-queue', 'data-watched', 'data-home');
   cardContainer.innerHTML = '';
   renewParam(3);
   
 // console.log(renevParam(3));
     const queueArray = localStorage.getLocalStorage('queueLibrary') || [];
-    // console.log(localStorage.getLocalStorage('queueLibrary'));
-
   
 
   //   const markup = cardMarkup(queueArray);
@@ -69,12 +69,11 @@ function onBtnQueueCLick(e) {
   
   cardContainer.insertAdjacentHTML('beforeend', cardMarkup(partOfQueueItems));
 
-  // loadMoreQueue()
+  loadMoreQueue()
 }
 
 const loadMoreWatched = function () {
   const watchedLibrary = localStorage.getLocalStorage('watchedLibrary') || [];
-  console.log(watchedLibrary);
 
    let numberOfItems = 3;
   visualNumberOfItems += numberOfItems;
@@ -89,7 +88,6 @@ const loadMoreWatched = function () {
 
 const loadMoreQueue = function () {
   const queueLibrary = localStorage.getLocalStorage('queueLibrary') || [];
-  console.log(queueLibrary);
 
    let numberOfItems = 3;
   visualNumberOfItems += numberOfItems;
@@ -133,9 +131,21 @@ function renewParam(num) {
 function onBtnHomeCLick(e) {
     e.preventDefault();
   sentinel.classList.add('display-none');
+  changeContainerAtr('data-home', 'data-watched', 'data-queue');
 }
 
 function onLogoCLick(e) {
     e.preventDefault();
   sentinel.classList.add('display-none');
+  changeContainerAtr('data-home', 'data-watched', 'data-queue');
+}
+
+// меняет атрибут контейнера для рендера разметки при работе с модалкой
+function changeContainerAtr(setAtr, reAtr1, reAtr2) {
+  cardContainer.setAttribute(`${setAtr}`, '');
+  const hasOtherDataAtr = cardContainer.hasAttribute(`${reAtr1}`) || cardContainer.hasAttribute(`${reAtr2}`);
+  if (hasOtherDataAtr) {
+    cardContainer.removeAttribute(`${reAtr1}`);
+    cardContainer.removeAttribute(`${reAtr2}`);
+  };
 }

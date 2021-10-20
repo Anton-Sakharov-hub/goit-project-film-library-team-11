@@ -1,13 +1,21 @@
 import lightboxTpl from '../templates/lightbox.hbs';
+import cardsTemplate from '../templates/cardsTemplate.hbs';
 import localStorage from '../js/local_storage';
 import refs from '../js/refs.js';
 
-const { cardsContainer, lightboxContainer, backdrop, } = refs;
+const { cardsContainer, lightboxContainer, backdrop, closeBtn, } = refs;
+const { getLocalStorage, setLocalStorage } = localStorage
+
 
 let modalFilm = {};
+let watchedFilms = [];
+let queueFilms = [];
+let filmId = null;
 
 cardsContainer.addEventListener('click', onCardsContainerClick);
 backdrop.addEventListener('click', onBackdropClick);
+// watchedBtn.addEventListener('click', addToWatchedHandler);
+// queueBtn.addEventListener('click', addToQueueHandler);
 
 function onCardsContainerClick(e) {
   e.preventDefault();
@@ -17,15 +25,19 @@ function onCardsContainerClick(e) {
   }
 
   lightboxContainer.classList.add('is-open');
-  const filmId = Number(e.target.dataset.id);
+  backdrop.classList.remove('visually-hidden');
 
-  const filmsArray = localStorage.getLocalStorage('Query'); // это массив фильмов с local storage
+  filmId = Number(e.target.dataset.id);
 
-  const dataFilm = findFilm(filmId, filmsArray);
+  const localStorageFilms = restLocalStorage(); // это массив фильмов с local storage
 
-  modalFilm =  dataFilm;
+  const dataFilm = findFilm(filmId, localStorageFilms);
 
-  const markup = lightboxTpl(dataFilm);
+  modalFilm =  {...dataFilm,
+    isWatched: !!(getLocalStorage('watchedLibrary') || []).find(el => el.id === filmId), isQueue: Boolean((getLocalStorage('queueLibrary') || []).find(el => el.id === filmId)),
+  };
+
+  const markup = lightboxTpl(modalFilm);
 
   lightboxContainer.innerHTML = markup;
 
@@ -36,13 +48,14 @@ function onCardsContainerClick(e) {
   btnsRefs.watchedBtn.addEventListener('click', addToWatchedHandler);
   btnsRefs.queueBtn.addEventListener('click', addToQueueHandler);
   window.addEventListener('keydown', onEscKeyPress, { once: true });
-  // closeBtn.addEventListener('click', onCloseLightbox, { once: true });
+  closeBtn.addEventListener('click', onCloseLightbox, { once: true });
 }
 
 function onCloseLightbox(e) {
   const btnsRefs = addModalBtnsRefs();
 
   lightboxContainer.classList.remove('is-open');
+  backdrop.classList.add('visually-hidden');
   btnsRefs.watchedBtn.removeEventListener('click', addToWatchedHandler);
   btnsRefs.queueBtn.removeEventListener('click', addToQueueHandler);
 
@@ -69,26 +82,40 @@ function findFilm(filmId, filmsArray) {
 // ----------------------- добавляет фильмы watchedLibrary и queueLibrary на local storage -----------------
 
 function addToWatchedHandler(e) {
-  const watchedFilms = localStorage.getLocalStorage('watchedLibrary') || [];
-  const filmId = Number(e.target.dataset.id);
+  const btnsRefs = addModalBtnsRefs();
+  watchedFilms = getLocalStorage('watchedLibrary') || [];
   const checkedFilmInWatched = watchedFilms.find(el => el.id === filmId);
+  
 
   if (checkedFilmInWatched) {
-    localStorage.setLocalStorage('watchedLibrary', watchedFilms.filter(el => el.id !== filmId));
+    watchedFilms = watchedFilms.filter(el => el.id !== filmId);
+    setLocalStorage('watchedLibrary', watchedFilms);
+    makeMarkupByAtr('watched', watchedFilms);
+    btnsRefs.watchedBtn.textContent = 'ADD TO WATCHED'
   } else {
-    localStorage.setLocalStorage('watchedLibrary', [...watchedFilms, modalFilm]);
+    watchedFilms = [...watchedFilms, modalFilm];
+    setLocalStorage('watchedLibrary', watchedFilms);
+    makeMarkupByAtr('watched', watchedFilms);
+    btnsRefs.watchedBtn.textContent = 'REMOVE FROM WATCHED';
+
   };
 };
 
 function addToQueueHandler(e) {
-  const queueFilms = localStorage.getLocalStorage('queueLibrary') || [];
-  const filmId = Number(e.target.dataset.id);
+  const btnsRefs = addModalBtnsRefs();
+  queueFilms = getLocalStorage('queueLibrary') || [];
   const checkedFilmInQueue = queueFilms.find(el => el.id === filmId);
-
+  
   if (checkedFilmInQueue) {
-    localStorage.setLocalStorage('queueLibrary', queueFilms.filter(el => el.id !== filmId));
+    queueFilms = [...queueFilms.filter(el => el.id !== filmId)];
+    setLocalStorage('queueLibrary', queueFilms);
+    makeMarkupByAtr('queue', queueFilms);
+    btnsRefs.queueBtn.textContent = 'ADD TO QUEUE';
   } else {
-    localStorage.setLocalStorage('queueLibrary', [...queueFilms, modalFilm]);
+    queueFilms = [...queueFilms, modalFilm];
+    setLocalStorage('queueLibrary', queueFilms);
+    makeMarkupByAtr('queue', queueFilms);
+    btnsRefs.queueBtn.textContent = 'REMOVE FROM QUEUE';
   };
 };
 
@@ -96,5 +123,22 @@ function addModalBtnsRefs() {
   return {
     watchedBtn: document.querySelector('.js-watched'),
     queueBtn: document.querySelector('.js-queue'),
+  };
+};
+
+// собирает все данные local storage
+function restLocalStorage() {
+  const filmArr = [...getLocalStorage('Query'),
+    ...getLocalStorage('watchedLibrary') || [],
+    ...getLocalStorage('queueLibrary') || []];
+  
+  return filmArr;
+}
+
+function makeMarkupByAtr(containerAtr, filmsData) {
+  const container = document.querySelector(`[data-${containerAtr}]`);
+
+  if (container) {
+    container.innerHTML = cardsTemplate(filmsData);
   };
 };
