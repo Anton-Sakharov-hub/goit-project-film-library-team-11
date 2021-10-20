@@ -1,6 +1,6 @@
 import refs from './refs.js';
 import homeRendering from './homeRendering.js';
-import { togleClass, clearInput } from './commonFunction.js';
+import { togleClass, clearInput } from './commonFunctions.js';
 
 const { header, logo, btnHome, btnMyLibrary, formSearch, navLibrary } = refs;
 
