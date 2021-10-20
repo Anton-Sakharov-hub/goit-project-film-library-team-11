@@ -4,7 +4,8 @@ import LS from './local_storage.js';
 import { togleClass, createMarkup, clearInput } from './commonFunction.js';
 import GenresDataWork from './GenresDataWork';
 import { searchMoviePagination } from './pagination-btns';
-import trendingFetch from './homeRendering';
+// import trendingFetch from './homeRendering';
+import { hidePreloader, showPreloader } from './homeRendering';
 
 //импорт toastr notification
 import toastr from 'toastr';
@@ -28,47 +29,45 @@ toastr.options = {
   hideMethod: 'fadeOut',
 };
 
-const { formSearch, paginationHome, paginationSearch } = refs;
+const { header, formSearch, paginationHome, paginationSearch } = refs;
 
 const genresDataWork = new GenresDataWork();
 
 formSearch.addEventListener('submit', onFormSearchsubmit);
 
 function onFormSearchsubmit(e) {
+  requests.page = 1;
   const input = e.currentTarget.elements.query;
   e.preventDefault();
-  updateQuery(input.value);
-  
-  if (input.value.trim() == '') {
-    toastr.warning('Пожалуйста, введите ваш запроc');
-    clearInput(input);
-  }
 
-  requests
-    .movieFetch()
-    .then(({ results, total_results }) => {
-      
-      if (results.length < 1) {
-        toastr.error('Фильм не найден! Измените ввод и повторите попытку');
-        clearInput(input);
-        trendingFetch();
-      }
-      createMarkup(results);
-      clearInput(input);
-      togleClass(paginationSearch, paginationHome, 'visually-hidden');
-      searchMoviePagination.setTotalItems(total_results);
-      searchMoviePagination.movePageTo(1);
-      LS.setLocalStorage('Query', results);
-    })
-    .catch(err => console.log(err));
+  msgOnEmptyQuery();
+
+  if (input.value.trim() !== '') {
+    updateQuery(input.value);
+    showPreloader();
+    
+    requests
+      .movieFetch()
+      .then(({ results, total_results }) => {
+        msgOnEmptyResults();
+        createMarkup(results);
+        togleClass(paginationSearch, paginationHome, 'visually-hidden');
+        searchMoviePagination.setTotalItems(total_results);
+        searchMoviePagination.movePageTo(1);
+        LS.setLocalStorage('Query', results);
+      })
+      .catch(err => console.log(err))
+      .finally(hidePreloader);
+  }
 }
 
-const updateQuery = newQuery => {
+function updateQuery(newQuery) {
   requests.query = newQuery;
-};
+}
 
-searchMoviePagination.on('afterMove', event => {
-  requests.page = event.page;
+searchMoviePagination.on('afterMove', e => {
+  showPreloader();
+  requests.page = e.page;
   requests
     .movieFetch()
     .then(({ results }) => {
@@ -76,6 +75,26 @@ searchMoviePagination.on('afterMove', event => {
       genresDataWork.changeDate(results);
       createMarkup(results);
       LS.setLocalStorage('Query', results);
+      header.scrollIntoView({
+        block: 'start',
+        behavior: 'smooth',
+      });
     })
-    .catch(err => console.log(err));
+    .catch(err => console.log(err))
+    .finally(hidePreloader);
 });
+
+function msgOnEmptyQuery () {
+  if (input.value.trim() === '') {
+    toastr.warning('Пожалуйста, введите ваш запроc');
+    clearInput(input);
+  }
+};
+
+function msgOnEmptyResults() {
+  if (results.length < 1) {
+    toastr.error('Фильм не найден! Измените ввод и повторите попытку');
+    clearInput(input);
+    return;
+  };
+}

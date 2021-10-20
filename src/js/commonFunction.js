@@ -1,5 +1,5 @@
 import refs from './refs';
-import cardsTemplate from '../template/cardMarkup.hbs';
+import cardsTemplate from '../templates/cardsTemplate.hbs';
 const { cardContainer, formSearch } = refs;
 
 function togleClass(refsRemove, refsAdd, classs) {
