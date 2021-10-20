@@ -10,15 +10,22 @@
 
   &__home {
     position: relative;
+    
     @include font-styles($line-height: 1.16);
   }
-
+  &__home:hover {
+    color: $accentColor;
+    transition: 0.3s;
+  }
   &__myLibrary {
     position: relative;
     margin-left: 40px;
     @include font-styles($line-height: 1.16);
   }
-
+  &__myLibrary:hover {
+    color: $accentColor;
+    transition: 0.3s;
+  }
   &__submit {
     position: absolute;
     left: 265px;

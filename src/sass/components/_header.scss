@@ -92,6 +92,10 @@
     display: inline;
   }
 }
+.logo-text:hover {
+  color: $accentColor;
+  transition: 0.3s;
+}
 
 .current-page::after {
   position: absolute;

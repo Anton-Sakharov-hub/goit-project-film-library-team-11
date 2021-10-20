@@ -11,6 +11,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  :hover{
+  cursor: pointer;
+  }
 
   @extend %marginCenters;
   padding: 10px 0 30px;
@@ -46,6 +49,7 @@
     width: 274px;
   }
 }
+
 .btn-up {
   position: fixed;
   border: none;
