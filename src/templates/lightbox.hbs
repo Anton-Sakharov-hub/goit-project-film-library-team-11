@@ -49,9 +49,16 @@
             </p>
         </div>
         <div class="lightbox__buttons">
+            {{#if isWatched}}
+            <button class="button__modal button js-watched" data-id="{{id}}">REMOVE FROM WATCHED</button>
+            {{else}}
             <button class="button__modal button js-watched" data-id="{{id}}">ADD TO WATCHED</button>
-
+            {{/if}}
+            {{#if isQueue}}
+            <button class="button__modal button js-queue" data-id="{{id}}">REMOVE FROM QUEUE</button>
+            {{else}}
             <button class="button__modal button js-queue" data-id="{{id}}">ADD TO QUEUE</button>
+            {{/if}}
         </div>
     </div>
 </div>
