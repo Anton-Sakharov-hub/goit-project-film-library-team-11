@@ -7,6 +7,7 @@ refs.openFooterModal.addEventListener('click', onOpenModal);
 
 function onOpenModal() {
   refs.backdropClick.classList.remove('is-hidden');
+  document.body.style.overflow = 'hidden';
 }
 window.addEventListener('keydown', onEscClick);
 
@@ -14,6 +15,7 @@ refs.backdropClick.addEventListener('click', onBackdropClick);
 
 function onCloseModal() {
   refs.backdropClick.classList.add('is-hidden');
+  document.body.style.overflow = 'visible';
 }
 
 function onBackdropClick(event) {
