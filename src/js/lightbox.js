@@ -6,6 +6,7 @@ import refs from '../js/refs.js';
 const { cardsContainer, lightboxContainer, backdrop, closeBtn} = refs;
 const { getLocalStorage, setLocalStorage } = localStorage
 
+
 let modalFilm = {};
 let watchedFilms = [];
 let queueFilms = [];
@@ -13,8 +14,6 @@ let filmId = null;
 
 cardsContainer.addEventListener('click', onCardsContainerClick);
 backdrop.addEventListener('click', onBackdropClick);
-// watchedBtn.addEventListener('click', addToWatchedHandler);
-// queueBtn.addEventListener('click', addToQueueHandler);
 
 function onCardsContainerClick(e) {
   e.preventDefault();

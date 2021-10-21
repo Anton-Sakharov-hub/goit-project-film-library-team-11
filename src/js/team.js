@@ -1,9 +1,11 @@
 const refs = {
   openFooterModal: document.querySelector('[data-action="open-teambox"]'),
   backdropClick: document.querySelector('.modal-backdrop'),
+  teamModalCloseBtn: document.querySelector('[data-team-modal-close]')
 };
 
 refs.openFooterModal.addEventListener('click', onOpenModal);
+refs.teamModalCloseBtn.addEventListener('click', onCloseModal)
 
 function onOpenModal() {
   refs.backdropClick.classList.remove('is-hidden');
@@ -26,7 +28,7 @@ function onBackdropClick(event) {
 
 function onEscClick(event) {
   const ESC_KEY_CODE = 'Escape';
-  console.log(event.code);
+  // console.log(event.code);
 
   if (event.code === ESC_KEY_CODE) {
     onCloseModal();
