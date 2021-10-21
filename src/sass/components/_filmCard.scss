@@ -11,13 +11,12 @@
 .card__poster {
   max-width: 100%;
   height: 402px;
-  cursor: pointer;
 
   border-radius: 5px;
 
   &:hover {
-    border-radius: 1px;
-    cursor: pointer;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 
   @media screen and (min-width: 768px) {
