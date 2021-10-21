@@ -8,7 +8,12 @@ export default {
   btnSubmit: document.querySelector('.btn-submit-js'),
   formSearch: document.querySelector('.form-js'),
   navLibrary: document.querySelector('.nav-library-js'),
+  // ------- theme checkbox -------------
   inputCheckbox: document.querySelector('#theme-switch-toggle'),
+
+  //----------preloader-------------
+  preloader: document.querySelector('.preloader'),
+
   // ----------mainScn-------------
   // mainScn: document.querySelector('.main-scn'),
   // -------- footer --------------
@@ -18,13 +23,15 @@ export default {
   // --------- lightbox ------------
   cardsContainer: document.querySelector('.card__list'),
   lightboxContainer: document.querySelector('.js-lightbox'),
-  backdrop: document.querySelector('.lightbox__overlay'),
-  // closeBtn: document.querySelector('[data-action="close-lightbox"]'),
+  backdrop: document.querySelector('.js-backdrop'),
+  closeBtn: document.querySelector('[data-modal-close]'),
+  // backdrop: document.querySelector('.lightbox__overlay'),
   // ---------- library --------------
   btnWatched: document.querySelector('.btn-watched-js'),
   btnQueue: document.querySelector('.btn-queue-js'),
+  sentinel: document.getElementById('sentinel'),
   // --------------pagination--------------
   paginationHome: document.getElementById('pagination1'),
   paginationSearch: document.getElementById('pagination2'),
+  buttonScrollToUp: document.querySelector('#btn-scroll-up'),
 };
-

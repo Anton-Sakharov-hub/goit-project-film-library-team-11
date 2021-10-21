@@ -26,6 +26,7 @@
     "sass": "^1.32.8"
   },
   "dependencies": {
+    "toastr": "^2.1.4",
     "tui-pagination": "^3.4.1"
   }
 }

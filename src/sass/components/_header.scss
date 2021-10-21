@@ -86,11 +86,16 @@
   font-weight: 500;
   font-size: 30px;
   line-height: 0.89;
-  color: #fff;
+  color: $primeryBgColor;
+
+  transition: color 250ms $cubic;
 
   @include for-tablet {
     display: inline;
   }
+}
+.logo-text:hover {
+  color: $accentColor;
 }
 
 .current-page::after {
@@ -100,7 +105,7 @@
   content: '';
   width: 100%;
   height: 3px;
-  background-color: #ff6b08;
+  background-color: $accentColor;
 }
 
 .form {
@@ -109,15 +114,26 @@
   &__input {
     background: transparent;
     border: none;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid $primeryBgColor;
     width: 280px;
-    color: #fff;
+    color: $primeryBgColor;
     @include for-tablet {
       width: 336px;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      outline: none;
+      border-bottom: 1px solid $accentColor;
+      color: $accentColor;
     }
   }
 }
 
 .nav-library {
   margin: 0 auto;
+}
+
+.svg {
+  stroke: $primeryBgColor;
 }

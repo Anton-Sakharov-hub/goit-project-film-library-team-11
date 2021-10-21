@@ -1,6 +1,4 @@
-import { API_KEY } from './api_key';
-import cardsTemplate from '../template/cardMarkup.hbs';
-import refs from './refs';
+const API_KEY = '52d240069c1d754f89fa7da7b1692ef8';
 
 export default {
   query: '',
@@ -29,9 +27,5 @@ export default {
     );
     if (response.ok) return response.json();
     throw new Error('Error fetching data');
-  },
-
-  createMarkup(films) {
-    refs.cardContainer.innerHTML = cardsTemplate(films);
   },
 };
