@@ -81,6 +81,17 @@
   margin-bottom: 45px;
 }
 
+// .activeLogo {
+//   color: $primeryBgColor;
+//   stroke: #818181;
+
+//   transition: color 250ms $cubic, stroke 250ms $cubic;
+//   &:hover {
+//     color: $accentColor;
+//     stroke: $accentColor;
+//   }
+// }
+
 .logo-text {
   display: none;
   font-weight: 500;
@@ -88,13 +99,14 @@
   line-height: 0.89;
   color: $primeryBgColor;
 
+  transition: color 250ms $cubic;
+
   @include for-tablet {
     display: inline;
   }
 }
 .logo-text:hover {
   color: $accentColor;
-  transition: 0.3s;
 }
 
 .current-page::after {

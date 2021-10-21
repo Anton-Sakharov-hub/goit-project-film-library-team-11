@@ -10,7 +10,7 @@
 
   &__home {
     position: relative;
-    
+
     @include font-styles($line-height: 1.16);
   }
   &__home:hover {
@@ -99,5 +99,16 @@
     @include for-desktop {
       width: 136px;
     }
+  }
+}
+
+// кнопка для закрытия
+.icon-close {
+  stroke: $primeryTextColor;
+  transition: stroke 250ms $cubic;
+
+  &:hover,
+  &:focus {
+    stroke: $accentColor;
   }
 }
