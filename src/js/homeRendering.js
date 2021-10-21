@@ -2,7 +2,7 @@ import requests from './requests.js';
 import refs from './refs.js';
 import LS from './local_storage.js';
 import { homePagePagination } from './pagination-btns';
-import { togleClass, createMarkup } from './commonFunction';
+import { togleClass, createMarkup, showPreloader, hidePreloader } from './commonFunctions';
 import GenresDataWork from './GenresDataWork';
 const { header, paginationHome, paginationSearch } = refs;
 
@@ -13,7 +13,6 @@ export default function homeRendering() {
   requests
     .trendingFetch()
     .then(({ results, total_results }) => {
-      
       createMarkup(results);
       togleClass(paginationHome, paginationSearch, 'visually-hidden');
       homePagePagination.setTotalItems(total_results);
@@ -30,8 +29,6 @@ homePagePagination.on('afterMove', event => {
   requests
     .trendingFetch()
     .then(({ results }) => {
-      // refs.preloader.classList.remove('done');
-      // setTimeout(preloader, 500);
       genresDataWork.addGenres(results);
       genresDataWork.changeDate(results);
       createMarkup(results);
@@ -47,11 +44,3 @@ homePagePagination.on('afterMove', event => {
 
 homeRendering();
 
-//ф-ция для отображения загрузчика
-export function hidePreloader() {
-  refs.preloader.classList.add('hidden');
-}
-
-export function showPreloader() {
-  refs.preloader.classList.remove('hidden');
-}

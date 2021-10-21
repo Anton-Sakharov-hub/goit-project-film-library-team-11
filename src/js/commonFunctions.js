@@ -11,9 +11,19 @@ function createMarkup(films) {
   cardContainer.innerHTML = cardsTemplate(films);
 }
 
-function clearInput() {
+ function clearInput() {
   const input = formSearch.elements.query;
   input.value = '';
 }
 
-export { togleClass, createMarkup, clearInput };
+
+//ф-ция для отображения загрузчика
+function hidePreloader() {
+  refs.preloader.classList.add('hidden');
+}
+
+function showPreloader() {
+  refs.preloader.classList.remove('hidden');
+}
+
+export { togleClass, createMarkup, clearInput, hidePreloader, showPreloader };

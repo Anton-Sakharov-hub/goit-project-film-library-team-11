@@ -1,10 +1,12 @@
 import requests from './requests.js';
 import refs from './refs.js';
 import LS from './local_storage.js';
-import { togleClass, createMarkup } from './commonFunction.js';
+import { togleClass, createMarkup, clearInput, hidePreloader, showPreloader } from './commonFunctions.js';
 import GenresDataWork from './GenresDataWork';
 import { searchMoviePagination } from './pagination-btns';
-import { hidePreloader, showPreloader } from './homeRendering';
+// import trendingFetch from './homeRendering';
+// import { hidePreloader, showPreloader } from './homeRendering';
+
 //импорт toastr notification
 import toastr from 'toastr';
 import 'toastr/build/toastr.css';
@@ -34,27 +36,38 @@ const genresDataWork = new GenresDataWork();
 formSearch.addEventListener('submit', onFormSearchsubmit);
 
 function onFormSearchsubmit(e) {
-  showPreloader();
+  requests.page = 1;
   const input = e.currentTarget.elements.query;
   e.preventDefault();
-  updateQuery(input.value);
-  requests
-    .movieFetch()
-    .then(({ results, total_results }) => {
-      createMarkup(results);
 
-      togleClass(paginationSearch, paginationHome, 'visually-hidden');
-      searchMoviePagination.setTotalItems(total_results);
-      searchMoviePagination.movePageTo(1);
-      LS.setLocalStorage('Query', results);
-    })
-    .catch(err => console.log(err))
-    .finally(hidePreloader);
+  msgOnEmptyQuery(input);
+
+  if (input.value.trim() !== '') {
+    updateQuery(input.value);
+    showPreloader();
+    
+    requests
+      .movieFetch()
+      .then(({ results, total_results }) => {
+        if (results.length < 1) {
+          toastr.error('Фильм не найден! Измените ввод и повторите попытку');
+          clearInput(input);
+          return;
+        };
+        createMarkup(results);
+        togleClass(paginationSearch, paginationHome, 'visually-hidden');
+        searchMoviePagination.setTotalItems(total_results);
+        searchMoviePagination.movePageTo(1);
+        LS.setLocalStorage('Query', results);
+      })
+      .catch(err => console.log(err))
+      .finally(hidePreloader);
+  }
 }
 
-const updateQuery = newQuery => {
+function updateQuery(newQuery) {
   requests.query = newQuery;
-};
+}
 
 searchMoviePagination.on('afterMove', e => {
   showPreloader();
@@ -74,3 +87,18 @@ searchMoviePagination.on('afterMove', e => {
     .catch(err => console.log(err))
     .finally(hidePreloader);
 });
+
+function msgOnEmptyQuery (input) {
+  if (input.value.trim() === '') {
+    toastr.warning('Пожалуйста, введите ваш запроc');
+    clearInput(input);
+  }
+};
+
+// function msgOnEmptyResults(results, input) {
+//   if (results.length < 1) {
+//     toastr.error('Фильм не найден! Измените ввод и повторите попытку');
+//     clearInput(input);
+//     return;
+//   };
+// }

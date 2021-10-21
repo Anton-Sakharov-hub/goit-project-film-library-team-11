@@ -59,7 +59,6 @@ function onBtnQueueCLick(e) {
   
 // console.log(renevParam(3));
     const queueArray = localStorage.getLocalStorage('queueLibrary') || [];
-
   
 
   //   const markup = cardMarkup(queueArray);

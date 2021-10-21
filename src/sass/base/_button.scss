@@ -1,25 +1,40 @@
 .button {
   padding: 0;
-
   cursor: pointer;
   color: $secondaryTextColor;
   background-color: transparent;
   border: none;
+  &:focus {
+    outline-color: $accentColor;
+  }
 
   &__home {
     position: relative;
+
     @include font-styles($line-height: 1.16);
   }
-
+  &__home:hover {
+    color: $accentColor;
+    transition: 0.3s;
+  }
   &__myLibrary {
     position: relative;
     margin-left: 40px;
     @include font-styles($line-height: 1.16);
   }
-
+  &__myLibrary:hover {
+    color: $accentColor;
+    transition: 0.3s;
+  }
   &__submit {
     position: absolute;
     left: 265px;
+    &:focus .svg {
+      stroke: $accentColor;
+    }
+    &:hover .svg {
+      stroke: $accentColor;
+    }
 
     @include for-tablet {
       left: 320px;
@@ -84,5 +99,16 @@
     @include for-desktop {
       width: 136px;
     }
+  }
+}
+
+// кнопка для закрытия
+.icon-close {
+  stroke: $primeryTextColor;
+  transition: stroke 250ms $cubic;
+
+  &:hover,
+  &:focus {
+    stroke: $accentColor;
   }
 }

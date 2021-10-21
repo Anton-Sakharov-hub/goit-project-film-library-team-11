@@ -8,3 +8,5 @@ import './js/library';
 import './js/GenresDataWork';
 import './js/searchMovieRendering';
 import './js/team';
+import './js/button-scroll'
+

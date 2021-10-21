@@ -88,9 +88,14 @@
   line-height: 0.89;
   color: $primeryBgColor;
 
+  transition: color 250ms $cubic;
+
   @include for-tablet {
     display: inline;
   }
+}
+.logo-text:hover {
+  color: $accentColor;
 }
 
 .current-page::after {
@@ -100,7 +105,7 @@
   content: '';
   width: 100%;
   height: 3px;
-  background-color: #ff6b08;
+  background-color: $accentColor;
 }
 
 .form {
@@ -115,9 +120,20 @@
     @include for-tablet {
       width: 336px;
     }
+    &:hover,
+    &:focus,
+    &:active {
+      outline: none;
+      border-bottom: 1px solid $accentColor;
+      color: $accentColor;
+    }
   }
 }
 
 .nav-library {
   margin: 0 auto;
+}
+
+.svg {
+  stroke: $primeryBgColor;
 }
