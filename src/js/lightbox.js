@@ -35,6 +35,8 @@ function onCardsContainerClick(e) {
     isWatched: !!(getLocalStorage('watchedLibrary') || []).find(el => el.id === filmId), isQueue: Boolean((getLocalStorage('queueLibrary') || []).find(el => el.id === filmId)),
   };
 
+  document.body.style.overflow = 'hidden';
+  
   const markup = lightboxTpl(modalFilm);
 
   lightboxContainer.innerHTML = markup;
@@ -55,6 +57,7 @@ function onCloseLightbox(e) {
 
   lightboxContainer.classList.remove('is-open');
   backdrop.classList.add('visually-hidden');
+  document.body.style.overflow = 'visible';
   btnsRefs.watchedBtn.removeEventListener('click', addToWatchedHandler);
   btnsRefs.queueBtn.removeEventListener('click', addToQueueHandler);
 
