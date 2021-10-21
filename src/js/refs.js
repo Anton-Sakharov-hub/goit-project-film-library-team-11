@@ -12,7 +12,7 @@ export default {
   // ----------mainScn-------------
   // mainScn: document.querySelector('.main-scn'),
   // -------- footer --------------
-  teamModalBtn: document.querySelector('[data-teamModalBtn]'),
+  //teamModalBtn: document.querySelector('[data-teamModalBtn]'),
   // --------- cardContainer -------------
   cardContainer: document.querySelector('[data-cardContainer]'),
   // --------- lightbox ------------
